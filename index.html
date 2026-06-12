@@ -949,16 +949,6 @@
       <div class="viz-card">
         <div class="viz-header">
           <div style="display: flex; align-items: center; gap: 8px">
-            <img
-              id="vizProjImg"
-              src=""
-              alt=""
-              class="viz-proj-img"
-              referrerpolicy="no-referrer"
-              style="display: none"
-              onerror="this.style.display = 'none'"
-              onload="this.style.display = 'block'"
-            />
             <span class="viz-projector-name" id="graphProjectorName"
               >בחר מקרן</span
             >
@@ -3241,7 +3231,6 @@
         const imgEl = document.getElementById("projImgEl");
         const placeholder = document.getElementById("projImgPlaceholder");
         const brandLogo = document.getElementById("projImgBrandLogo");
-        const vizImg = document.getElementById("vizProjImg");
 
         if (brandLogo) brandLogo.textContent = projector.brand;
 
@@ -3249,17 +3238,11 @@
           if (imgEl) {
             imgEl.src = imgUrl;
           }
-          if (vizImg) {
-            vizImg.src = imgUrl;
-          }
           if (placeholder) placeholder.style.display = "none";
         } else {
           if (imgEl) {
             imgEl.src = "";
             imgEl.style.display = "none";
-          }
-          if (vizImg) {
-            vizImg.style.display = "none";
           }
           if (placeholder) placeholder.style.display = "flex";
         }
