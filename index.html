@@ -1433,28 +1433,42 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/airtable@0.12.2/lib/airtable.umd.min.js"></script>
     <script>
-      const AIRTABLE_API_KEY = "patV0a3Im4oiUbX2b.ce2b74dc2c60c0456947b90f66b01cc69fcebb8d9fb3d85cc44cd6da86873c27";
-      const AIRTABLE_BASE_ID = "appvH3lcdwnIZ6KyE";
-      const AIRTABLE_TABLE_ID = "tblMW45YCDbi9siEw";
-      Airtable.configure({ apiKey: AIRTABLE_API_KEY, endpointUrl: "https://api.airtable.com" });
-      const base = Airtable.base(AIRTABLE_BASE_ID);
+      // const AIRTABLE_API_KEY = "patV0a3Im4oiUbX2b.ce2b74dc2c60c0456947b90f66b01cc69fcebb8d9fb3d85cc44cd6da86873c27";
+      // const AIRTABLE_BASE_ID = "appvH3lcdwnIZ6KyE";
+      // const AIRTABLE_PROJECTORS_TABLE_ID = "tblMW45YCDbi9siEw";
+      // const AIRTABLE_LENSES_TABLE_ID = "tbl2CU3b2fSJ2rImh";
+      // Airtable.configure({ apiKey: AIRTABLE_API_KEY, endpointUrl: "https://api.airtable.com" });
+      // const base = Airtable.base(AIRTABLE_BASE_ID);
 
-      async function fetchAllRecords() {
-        const records = [];
-        await base(AIRTABLE_TABLE_ID)
-          .select({ view: "Grid view", fields: ["flddVQmtK7E3xbgxj", "fldsFqD991bdrE1Cb", "fldDGGsxn9quQQp7N", "fldJGlI4xpPJRS0RL", "fldoEDZLjFAt56cIe", "fld4ygkTS9QpOHSmm", "fldonvCwlmpp1TrHQ", "fld6KzhFMcYLm9qwz"] })
-          .eachPage((pageRecords, fetchNextPage) => {
-            records.push(...pageRecords);
-            fetchNextPage();
-          });
-        return records;
-      }
-      fetchAllRecords().then((records) => {
-        console.log("Fetched records:", records);
-        // You can process the records here or store them in a variable for later use
-      }).catch((error) => {
-        console.error("Error fetching records:", error);
-      });
+      // async function fetchAllProjectors() {
+      //   const records = [];
+      //   await base(AIRTABLE_PROJECTORS_TABLE_ID)
+      //     .select({
+      //       view: "Grid view",
+      //       fields: [
+      //         "flddVQmtK7E3xbgxj",
+      //         "fldsFqD991bdrE1Cb",
+      //         "fldDGGsxn9quQQp7N",
+      //         "fldJGlI4xpPJRS0RL",
+      //         "fldoEDZLjFAt56cIe",
+      //         "fld4ygkTS9QpOHSmm",
+      //         "fldonvCwlmpp1TrHQ",
+      //         "fld6KzhFMcYLm9qwz",
+      //         "fld6fzi4GG1tdogTG",
+      //         "fldwUUuWpfJV2MgbB",
+      //         "fldngAWzYgxbEU2UG"] })
+      //     .eachPage((pageRecords, fetchNextPage) => {
+      //       records.push(...pageRecords);
+      //       fetchNextPage();
+      //     });
+      //   return records;
+      // }
+      // fetchAllProjectors().then((records) => {
+      //   console.log("Fetched records:", records);
+      //   // You can process the records here or store them in a variable for later use
+      // }).catch((error) => {
+      //   console.error("Error fetching records:", error);
+      // });
       const database = [
         {
           id: "optoma-x400lv",
