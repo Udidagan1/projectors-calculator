@@ -548,7 +548,7 @@
       }
       .matches-list {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
         gap: 6px;
       }
       .match-item {
@@ -850,7 +850,7 @@
             type="number"
             id="screenWidth"
             value="250"
-            onfocus="this.select()"
+            onclick="this.select()"
             oninput="
               syncWidthSlider();
               calculate();
@@ -880,7 +880,7 @@
             type="number"
             id="actualDistance"
             placeholder="850"
-            onfocus="this.select()"
+            onclick="this.select()"
             oninput="calculate()"
           />
           <span class="unit-label">ס"מ</span>
@@ -912,14 +912,6 @@
               >בחר מקרן</span
             >
           </div>
-          <span
-            style="
-              font-size: 10px;
-              color: var(--gray2);
-              font-family: var(--mono);
-            "
-            id="graphRangeText"
-          ></span>
         </div>
         <svg
           id="vizSvg"
@@ -1020,7 +1012,7 @@
               font-size="7"
               font-weight="700"
               fill="#64748b"
-              font-family="Calibri,sans-serif"
+              font-family="Calibri,Calibri Regular,sans-serif"
               transform="rotate(90,299,102)"
             >
               מסך
@@ -1064,7 +1056,7 @@
               font-size="7.5"
               font-weight="600"
               fill="#1d4ed8"
-              font-family="Calibri,sans-serif"
+              font-family="Calibri,Calibri Regular,sans-serif"
               transform="rotate(-90,283,102)"
               opacity="0"
             />
@@ -1118,10 +1110,10 @@
               x="334"
               y="99"
               text-anchor="middle"
-              font-size="8"
+              font-size="10"
               font-weight="700"
               fill="white"
-              font-family="Calibri,sans-serif"
+              font-family="Calibri,Calibri Regular,sans-serif"
             >
               — ס"מ
             </text>
@@ -1184,10 +1176,10 @@
               x="180"
               y="184"
               text-anchor="middle"
-              font-size="8.5"
+              font-size="10.5"
               font-weight="700"
               fill="#2563eb"
-              font-family="Calibri,sans-serif"
+              font-family="Calibri,Calibri Regular,sans-serif"
             >
               מרחק: — ס"מ
             </text>
@@ -1195,37 +1187,35 @@
 
           <g id="svgDiagLabel">
             <rect
-              x="301"
+              x="279"
               y="8"
-              width="54"
-              height="26"
+              width="75"
+              height="17"
               rx="6"
               fill="#eff6ff"
               stroke="#2563eb"
               stroke-width="1"
             />
             <text
-              x="328"
-              y="19"
-              text-anchor="middle"
-              font-size="6.5"
-              fill="rgba(37,99,235,0.7)"
-              font-family="Calibri,sans-serif"
-              font-weight="500"
-            >
-              גודל מסך
-            </text>
-            <text
-              id="svgDiagText"
-              x="328"
-              y="30"
+              x="319"
+              y="20"
               text-anchor="middle"
               font-size="10"
-              fill="#1d4ed8"
-              font-family="Calibri,sans-serif"
+              fill="rgba(37,99,235,0.7)"
+              font-family="Calibri,Calibri Regular,sans-serif"
               font-weight="700"
             >
-              — ″
+              גודל מסך:
+              <tspan
+                id="svgDiagText"
+                text-anchor="middle"
+                font-size="12"
+                fill="#1d4ed8"
+                font-family="Calibri,Calibri Regular,sans-serif"
+                font-weight="700"
+              >
+                — ″
+              </tspan>
             </text>
           </g>
 
@@ -1235,8 +1225,8 @@
             y="105"
             text-anchor="middle"
             font-size="13"
-            fill="#bbbbbb"
-            font-family="Calibri,sans-serif"
+            fill="#000"
+            font-family="Calibri,Calibri Regular,sans-serif"
             font-weight="500"
           >
             בחר מקרן וגודל מסך
@@ -1349,16 +1339,6 @@
           <span class="rri-key">מצב</span>
           <span id="statusText" class="status-pill"></span>
         </div>
-        <p
-          id="rangeText"
-          style="
-            font-size: 11px;
-            color: var(--gray2);
-            padding: 6px 16px 0;
-            font-weight: 500;
-            font-family: var(--mono);
-          "
-        ></p>
         <div class="result-row-item">
           <span class="rri-key">דגם</span
           ><span class="rri-val" id="modelName">—</span>
@@ -2785,10 +2765,6 @@
           maxCm + "–" + minCm + ' ס"מ';
         document.getElementById("graphProjectorName").textContent =
           projector.model;
-        document.getElementById("graphRangeText").textContent =
-          minCm + "–" + maxCm + ' ס"מ';
-        document.getElementById("rangeText").textContent =
-          minCm + ' ס"מ - ' + maxCm + ' ס"מ';
 
         const [rW, rH] = projector.ratio.split(":").map(Number);
         const screenH = rW && rH ? screenWidth * (rH / rW) : null;
@@ -2801,14 +2777,13 @@
         const mid = (minDist + maxDist) / 2;
         const midCm = mid * 100;
 
-        document.getElementById("modelName").textContent =
-          "דגם: " + projector.model;
+        document.getElementById("modelName").textContent = projector.model;
         document.getElementById("modelResolution").textContent =
-          "רזולוציה: " + (projector.resolution || "—");
+          projector.resolution || "—";
         document.getElementById("modelLumens").textContent =
-          "לומן: " + (projector.lumens || "—");
+          projector.lumens || "—";
         document.getElementById("modelAspect").textContent =
-          "יחס: " + (projector.ratio || "—");
+          projector.ratio || "—";
         document.getElementById("modelThrow").textContent =
           minCm + ' ס"מ - ' + maxCm + ' ס"מ';
 
