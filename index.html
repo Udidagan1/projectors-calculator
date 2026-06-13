@@ -2434,8 +2434,7 @@
           resolution: "WUXGA (1920x1200)",
           lumens: "10,000",
           ratio: "16:10",
-        },
-        lenses: [
+          lenses: [
           { name: "ET-C1U200", throwRatioMin: 0.380, throwRatioMax: 0.380 },
           { name: "ET-C1U100", throwRatioMin: 0.308, throwRatioMax: 0.330 },
           { name: "ET-C1W300", throwRatioMin: 0.550, throwRatioMax: 0.690 },
@@ -2445,6 +2444,7 @@
           { name: "ET-C1T700", throwRatioMin: 2.07, throwRatioMax: 3.38 },
           { name: "ET-C1T800", throwRatioMin: 3.30, throwRatioMax: 6.60 },
       ],
+        },
         {
           id: "panasonic-pt-rez12",
           brand: "Panasonic",
@@ -2452,8 +2452,7 @@
           resolution: "WUXGA (1920x1200)",
           lumens: "12,000",
           ratio: "16:10",
-        },
-        lenses: [
+          lenses: [
           { name: "ET-C1U200", throwRatioMin: 0.380, throwRatioMax: 0.380 },
           { name: "ET-C1U100", throwRatioMin: 0.308, throwRatioMax: 0.330 },
           { name: "ET-C1W300", throwRatioMin: 0.550, throwRatioMax: 0.690 },
@@ -2463,6 +2462,7 @@
           { name: "ET-C1T700", throwRatioMin: 2.07, throwRatioMax: 3.38 },
           { name: "ET-C1T800", throwRatioMin: 3.30, throwRatioMax: 6.60 },
       ],
+        },
         {
           id: "panasonic-pt-rez15",
           brand: "Panasonic",
@@ -2488,6 +2488,7 @@
           resolution: "WUXGA (1920x1200)",
           lumens: "10,000",
           ratio: "16:10",
+          lenses: [
             { name: "ET-EMW200", throwRatioMin: 0.48, throwRatioMax: 0.55 },
             { name: "ET-EMW300", throwRatioMin: 0.55, throwRatioMax: 0.69 },
             { name: "ET-EMW400", throwRatioMin: 0.69, throwRatioMax: 0.95 },
@@ -2504,6 +2505,7 @@
           resolution: "WUXGA (1920x1200)",
           lumens: "13,000",
           ratio: "16:10",
+          lenses: [
             { name: "ET-EMW200", throwRatioMin: 0.48, throwRatioMax: 0.55 },
             { name: "ET-EMW300", throwRatioMin: 0.55, throwRatioMax: 0.69 },
             { name: "ET-EMW400", throwRatioMin: 0.69, throwRatioMax: 0.95 },
@@ -2890,9 +2892,9 @@
         }
 
         document.getElementById("throwRatioText").textContent =
-          activeThrowMax.toFixed(2) + " - " + activeThrowMin.toFixed(2);
+          activeThrowMin.toFixed(2) + " - " + activeThrowMax.toFixed(2);
         document.getElementById("throwDistanceText").textContent =
-          maxCm + "–" + minCm + ' ס"מ';
+          minCm + "–" + maxCm + ' ס"מ';
         document.getElementById("graphProjectorName").textContent =
           projector.model;
 
@@ -3486,7 +3488,6 @@
             }
             return "";
           })(),
-          ,
           "הגדרות:",
           "רוחב מסך: " + sw + ' ס"מ',
           isNaN(ad) ? "" : "מרחק התקנה: " + ad + ' ס"מ',
