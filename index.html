@@ -753,9 +753,7 @@
         transition: border-color 0.15s;
         min-height: 44px;
       }
-      .logo-upload-area:hover {
-        border-color: var(--accent);
-      }
+      .logo-upload-area:hover { border-color: var(--accent); }
       .logo-upload-area #logoUploadHint {
         font-size: 12px;
         color: var(--gray2);
@@ -763,7 +761,7 @@
       .logo-remove-btn {
         font-size: 11px;
         color: var(--red);
-        background: rgba(220, 38, 38, 0.08);
+        background: rgba(220,38,38,0.08);
         border: none;
         border-radius: 999px;
         padding: 3px 9px;
@@ -1006,65 +1004,329 @@
         border-color: var(--accent);
         color: var(--accent);
       }
+      /* ── Quote Preview Modal ── */
       .quote-preview-modal {
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0, 0, 0, 0.45);
+        background: rgba(0,0,0,0.5);
         z-index: 1000;
         align-items: center;
         justify-content: center;
-        padding: 16px;
+        padding: 12px;
       }
-      .quote-preview-modal.open {
-        display: flex;
-      }
+      .quote-preview-modal.open { display: flex; }
+
       .quote-preview-box {
         background: white;
-        border-radius: var(--radius);
+        border-radius: 14px;
         width: 100%;
-        max-width: 420px;
-        max-height: 88vh;
+        max-width: 520px;
+        max-height: 92vh;
         overflow-y: auto;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 24px 64px rgba(0,0,0,0.28);
         display: flex;
         flex-direction: column;
+        font-family: Arial, 'Helvetica Neue', sans-serif;
+        direction: rtl;
       }
+
+      /* Header */
       .qp-head {
-        padding: 16px 18px 12px;
-        border-bottom: 1px solid #e5e7eb;
         display: flex;
+        align-items: center;
         justify-content: space-between;
-        align-items: flex-start;
+        padding: 18px 20px 14px;
         position: sticky;
         top: 0;
         background: white;
-        z-index: 1;
+        z-index: 2;
+        gap: 10px;
       }
-      .qp-logo-area h2 {
-        font-size: 16px;
-        font-weight: 800;
-        color: #111;
+      .qp-logo-area {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        min-height: 36px;
+      }
+      .qp-logo-area img { max-height: 44px; max-width: 140px; object-fit: contain; }
+      .qp-head-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2px;
+      }
+      .qp-doc-title {
+        font-size: 20px;
+        font-weight: 900;
+        color: #1d4ed8;
         letter-spacing: -0.5px;
+        line-height: 1;
       }
-      .qp-logo-area p {
+      .qp-doc-num {
         font-size: 11px;
-        color: #888;
-        margin-top: 2px;
+        color: #999;
+        letter-spacing: 0.04em;
       }
       .qp-close {
         background: none;
         border: none;
-        font-size: 20px;
-        color: #888;
+        font-size: 22px;
+        color: #bbb;
         cursor: pointer;
-        padding: 0 4px;
+        padding: 0 0 0 4px;
+        line-height: 1;
+        flex-shrink: 0;
       }
+      .qp-close:hover { color: #555; }
+
+      /* Gradient bar */
+      .qp-divider {
+        height: 3px;
+        background: linear-gradient(90deg, #1d4ed8 0%, #60a5fa 55%, #e5e7eb 100%);
+        flex-shrink: 0;
+      }
+
+      /* Body */
       .qp-body {
-        padding: 16px 18px;
+        padding: 20px 20px 12px;
         display: flex;
         flex-direction: column;
-        gap: 14px;
+        gap: 20px;
+      }
+
+      /* Meta strip — label above value */
+      .qp-meta-strip {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .qp-meta-cell {
+        padding: 11px 14px;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .qp-meta-cell:nth-child(odd) { border-left: 1px solid #f0f0f0; }
+      .qp-meta-cell:nth-last-child(-n+2) { border-bottom: none; }
+      .qp-meta-cell span {
+        font-size: 10px;
+        color: #aaa;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        font-weight: 600;
+      }
+      .qp-meta-cell strong {
+        font-size: 14px;
+        font-weight: 700;
+        color: #111;
+        line-height: 1.3;
+      }
+
+      /* Projector spec block */
+      .qp-spec-block {
+        background: linear-gradient(135deg,#eff6ff,#eef2ff);
+        border: 1px solid #bfdbfe;
+        border-radius: 12px;
+        padding: 14px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .spec-title {
+        font-size: 15px;
+        font-weight: 800;
+        color: #1d4ed8;
+        display: block;
+        line-height: 1.2;
+      }
+      .qp-spec-grid {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 8px;
+      }
+      .qp-spec-item {
+        background: white;
+        border: 1px solid #dbeafe;
+        border-radius: 8px;
+        padding: 8px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .qp-spec-item span {
+        font-size: 10px;
+        color: #93c5fd;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        font-weight: 600;
+      }
+      .qp-spec-item strong {
+        font-size: 13px;
+        font-weight: 800;
+        color: #1e3a8a;
+        line-height: 1.2;
+      }
+      .qp-spec-location {
+        background: white;
+        border: 1px solid #dbeafe;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 12px;
+        color: #555;
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        line-height: 1.4;
+      }
+
+      /* Items table */
+      .qp-table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        overflow: hidden;
+        font-size: 12px;
+      }
+      .qp-table thead tr { background: #1d4ed8; }
+      .qp-table th {
+        padding: 10px 12px;
+        text-align: right;
+        color: white;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .qp-table th:not(:first-child) { text-align: left; }
+      .qp-table tbody tr:nth-child(even) { background: #f9fafb; }
+      .qp-table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #f0f0f0;
+        color: #333;
+        vertical-align: middle;
+        line-height: 1.4;
+      }
+      .qp-table tbody tr:last-child td { border-bottom: none; }
+      .qp-table td.num { text-align: center; color: #555; }
+      .qp-table td.price {
+        text-align: left;
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+        color: #222;
+      }
+
+      /* Totals */
+      .qp-totals-wrap { display: flex; justify-content: flex-end; }
+      .qp-totals {
+        width: 220px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .qp-tot-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 9px 13px;
+        font-size: 13px;
+        color: #555;
+        border-bottom: 1px solid #f0f0f0;
+        gap: 8px;
+      }
+      .qp-tot-row:last-child { border-bottom: none; }
+      .qp-tot-row.grand {
+        background: #1d4ed8;
+        color: white;
+        font-size: 15px;
+        font-weight: 800;
+        padding: 11px 13px;
+      }
+
+      /* Notes */
+      .qp-notes {
+        background: #fffbeb;
+        border: 1px solid #fde68a;
+        border-radius: 10px;
+        padding: 12px 14px;
+        font-size: 12px;
+        color: #555;
+        line-height: 1.6;
+      }
+      .qp-notes strong { display: block; margin-bottom: 5px; color: #92400e; font-size: 12px; }
+
+      /* Document footer text */
+      .qp-doc-footer {
+        text-align: center;
+        font-size: 10px;
+        color: #ccc;
+        border-top: 1px solid #f0f0f0;
+        padding-top: 14px;
+        line-height: 1.5;
+      }
+
+      /* Action bar */
+      .qp-footer-actions {
+        padding: 12px 20px 16px;
+        border-top: 1px solid #e5e7eb;
+        display: flex;
+        gap: 8px;
+        position: sticky;
+        bottom: 0;
+        background: white;
+        z-index: 2;
+      }
+      .qp-print-btn {
+        flex: 1;
+        padding: 11px;
+        background: linear-gradient(135deg,#2563eb,#1d4ed8);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-family: inherit;
+      }
+      .qp-print-btn:hover { background: linear-gradient(135deg,#1d4ed8,#1e3a8a); }
+      .qp-share-btn {
+        padding: 11px 14px;
+        background: white;
+        border: 1px solid #6ee7b7;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        color: #059669;
+        font-family: inherit;
+      }
+      .qp-share-btn:hover { background: #f0fdf4; }
+      .qp-copy-btn {
+        padding: 11px 14px;
+        background: white;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        color: #444;
+        font-family: inherit;
+      }
+      .qp-copy-btn:hover { background: #f9fafb; }
+      .qp-body {
+        padding: 20px 22px 8px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
       }
       .qp-meta {
         display: grid;
@@ -1073,13 +1335,8 @@
         font-size: 11px;
         color: #444;
       }
-      .qp-meta span {
-        display: block;
-      }
-      .qp-meta strong {
-        color: #111;
-        font-size: 12px;
-      }
+      .qp-meta span { display: block; }
+      .qp-meta strong { color: #111; font-size: 12px; }
       .qp-projector-block {
         background: #f0f4ff;
         border: 1px solid #c7d7f8;
@@ -1102,7 +1359,7 @@
       }
       .qp-table th {
         background: #f3f4f6;
-        padding: 6px 8px;
+        padding: 9px 11px;
         text-align: right;
         font-weight: 700;
         color: #555;
@@ -1111,55 +1368,47 @@
         text-transform: uppercase;
       }
       .qp-table td {
-        padding: 7px 8px;
+        padding: 10px 11px;
         border-bottom: 1px solid #f0f0f0;
         color: #333;
         vertical-align: middle;
+        line-height: 1.4;
       }
-      .qp-table tr:last-child td {
-        border-bottom: none;
-      }
-      .qp-table td.num {
-        text-align: center;
-      }
-      .qp-table td.price {
-        text-align: left;
-        font-family: monospace;
-      }
+      .qp-table tr:last-child td { border-bottom: none; }
+      .qp-table td.num { text-align: center; }
+      .qp-table td.price { text-align: left; font-family: monospace; }
       .qp-totals {
         border-top: 1px solid #e5e7eb;
-        padding-top: 10px;
+        padding-top: 12px;
         display: flex;
         flex-direction: column;
-        gap: 4px;
+        gap: 6px;
       }
       .qp-tot-row {
         display: flex;
         justify-content: space-between;
-        font-size: 12px;
+        font-size: 13px;
         color: #555;
+        padding: 2px 0;
       }
       .qp-tot-row.grand {
         font-size: 16px;
         font-weight: 800;
         color: #1d4ed8;
-        border-top: 1px solid #c7d7f8;
-        padding-top: 8px;
+        border-top: 2px solid #c7d7f8;
+        padding-top: 10px;
         margin-top: 4px;
       }
       .qp-notes {
-        background: #f9fafb;
+        background: #fffbeb;
+        border: 1px solid #fde68a;
         border-radius: 8px;
-        padding: 10px 12px;
-        font-size: 11px;
+        padding: 12px 14px;
+        font-size: 12px;
         color: #555;
-        line-height: 1.5;
+        line-height: 1.6;
       }
-      .qp-notes strong {
-        display: block;
-        margin-bottom: 3px;
-        color: #333;
-      }
+      .qp-notes strong { display: block; margin-bottom: 5px; color: #92400e; font-size: 12px; }
       .qp-footer-actions {
         padding: 12px 18px 16px;
         border-top: 1px solid #e5e7eb;
@@ -1193,7 +1442,21 @@
         font-weight: 600;
         cursor: pointer;
         color: #444;
+        font-family: inherit;
       }
+      .qp-share-btn {
+        padding: 10px 14px;
+        background: white;
+        border: 1px solid #d1d5db;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        color: #059669;
+        border-color: #6ee7b7;
+        font-family: inherit;
+      }
+      .qp-share-btn:hover { background: #f0fdf4; }
       /* Print handled via new window — no media query needed here */
     </style>
   </head>
@@ -1844,6 +2107,7 @@
         📄 ייצוא דוח
       </button>
 
+
       <!-- ── Dynamic Quote Generator ── -->
       <div class="quote-section" id="quoteSection">
         <div class="quote-header">
@@ -1851,56 +2115,23 @@
           <span class="quote-badge">גנרטור תבניות</span>
         </div>
         <div class="quote-body">
+
           <!-- Logo upload -->
           <div class="quote-field full">
             <label>לוגו חברה (אופציונלי)</label>
-            <div
-              class="logo-upload-area"
-              id="logoUploadArea"
-              onclick="document.getElementById('qLogoInput').click()"
-            >
-              <img
-                id="logoPreviewImg"
-                src=""
-                alt=""
-                style="
-                  display: none;
-                  max-height: 48px;
-                  max-width: 160px;
-                  object-fit: contain;
-                "
-              />
+            <div class="logo-upload-area" id="logoUploadArea" onclick="document.getElementById('qLogoInput').click()">
+              <img id="logoPreviewImg" src="" alt="" style="display:none;max-height:48px;max-width:160px;object-fit:contain" />
               <span id="logoUploadHint">📎 לחץ להוספת לוגו</span>
-              <button
-                id="logoRemoveBtn"
-                style="display: none"
-                onclick="
-                  event.stopPropagation();
-                  quoteClearLogo();
-                "
-                class="logo-remove-btn"
-              >
-                ✕ הסר
-              </button>
+              <button id="logoRemoveBtn" style="display:none" onclick="event.stopPropagation();quoteClearLogo()" class="logo-remove-btn">✕ הסר</button>
             </div>
-            <input
-              type="file"
-              id="qLogoInput"
-              accept="image/*"
-              style="display: none"
-              onchange="quoteLoadLogo(this)"
-            />
+            <input type="file" id="qLogoInput" accept="image/*" style="display:none" onchange="quoteLoadLogo(this)" />
           </div>
 
           <!-- Client info -->
           <div class="quote-grid">
             <div class="quote-field">
               <label>שם לקוח</label>
-              <input
-                type="text"
-                id="qClientName"
-                placeholder="שם הלקוח / חברה"
-              />
+              <input type="text" id="qClientName" placeholder="שם הלקוח / חברה" />
             </div>
             <div class="quote-field">
               <label>מספר הצעה</label>
@@ -1921,10 +2152,7 @@
             </div>
             <div class="quote-field full">
               <label>מיקום התקנה / הערות</label>
-              <textarea
-                id="qLocation"
-                placeholder="כגון: אולם ישיבות קומה 3, מרחק 4 מטר מהמסך..."
-              ></textarea>
+              <textarea id="qLocation" placeholder="כגון: אולם ישיבות קומה 3, מרחק 4 מטר מהמסך..."></textarea>
             </div>
           </div>
 
@@ -1932,9 +2160,7 @@
           <div>
             <div class="quote-items-header">
               <span class="quote-items-label">פריטים</span>
-              <button class="add-item-btn" onclick="quoteAddItem()">
-                + הוסף פריט
-              </button>
+              <button class="add-item-btn" onclick="quoteAddItem()">+ הוסף פריט</button>
             </div>
             <div class="quote-items-list" id="quoteItemsList"></div>
           </div>
@@ -1943,14 +2169,7 @@
           <div class="quote-grid">
             <div class="quote-field">
               <label>הנחה (%)</label>
-              <input
-                type="number"
-                id="qDiscount"
-                placeholder="0"
-                min="0"
-                max="100"
-                oninput="quoteRecalc()"
-              />
+              <input type="number" id="qDiscount" placeholder="0" min="0" max="100" oninput="quoteRecalc()" />
             </div>
             <div class="quote-field">
               <label>מע"מ</label>
@@ -1984,12 +2203,8 @@
 
           <!-- Actions -->
           <div class="quote-actions">
-            <button class="quote-btn-primary" onclick="quotePreview()">
-              👁 תצוגה מקדימה / PDF
-            </button>
-            <button class="quote-btn-secondary" onclick="quoteExportTxt()">
-              ⬇ TXT
-            </button>
+            <button class="quote-btn-primary" onclick="quotePreview()">👁 תצוגה מקדימה / PDF</button>
+            <button class="quote-btn-secondary" onclick="quoteExportTxt()">⬇ TXT</button>
           </div>
         </div>
       </div>
@@ -1997,6 +2212,7 @@
       <!-- Quote Preview Modal -->
       <div class="quote-preview-modal" id="quoteModal">
         <div class="quote-preview-box" id="quotePrintContent">
+
           <!-- Header bar -->
           <div class="qp-head">
             <div id="qpLogoArea" class="qp-logo-area"></div>
@@ -2004,14 +2220,7 @@
               <div class="qp-doc-title">הצעת מחיר</div>
               <div class="qp-doc-num" id="qpDocNum"></div>
             </div>
-            <button
-              class="qp-close no-print"
-              onclick="
-                document.getElementById('quoteModal').classList.remove('open')
-              "
-            >
-              ✕
-            </button>
+            <button class="qp-close no-print" onclick="document.getElementById('quoteModal').classList.remove('open')">✕</button>
           </div>
 
           <!-- Divider -->
@@ -2028,10 +2237,10 @@
             <table class="qp-table">
               <thead>
                 <tr>
-                  <th style="width: 50%">תיאור פריט</th>
-                  <th class="num" style="width: 10%">כמות</th>
-                  <th class="price" style="width: 20%">מחיר ליחידה</th>
-                  <th class="price" style="width: 20%">סה"כ</th>
+                  <th style="width:50%">תיאור פריט</th>
+                  <th class="num" style="width:10%">כמות</th>
+                  <th class="price" style="width:20%">מחיר ליחידה</th>
+                  <th class="price" style="width:20%">סה"כ</th>
                 </tr>
               </thead>
               <tbody id="qpTableBody"></tbody>
@@ -2043,25 +2252,21 @@
             </div>
 
             <!-- Notes -->
-            <div class="qp-notes" id="qpNotes" style="display: none">
+            <div class="qp-notes" id="qpNotes" style="display:none">
               <strong>הערות והבהרות:</strong>
               <span id="qpNotesText"></span>
             </div>
 
             <!-- Footer -->
             <div class="qp-doc-footer">
-              מסמך זה הופק אוטומטית ומהווה הצעת מחיר בלבד. תוקפה מותנה בפרטים
-              המצוינים לעיל.
+              מסמך זה הופק אוטומטית ומהווה הצעת מחיר בלבד. תוקפה מותנה בפרטים המצוינים לעיל.
             </div>
           </div>
 
           <div class="qp-footer-actions no-print">
-            <button class="qp-print-btn" onclick="quotePrintFull()">
-              🖨 הדפסה / PDF
-            </button>
-            <button class="qp-copy-btn" onclick="quoteCopyText()">
-              📋 העתק טקסט
-            </button>
+            <button class="qp-print-btn" onclick="quotePrintFull()">🖨 הדפסה / PDF</button>
+            <button class="qp-share-btn" onclick="quoteShare()">📤 שתף</button>
+            <button class="qp-copy-btn" onclick="quoteCopyText()">📋 העתק</button>
           </div>
         </div>
       </div>
@@ -3559,7 +3764,7 @@
         if (!brand || !model || isNaN(screenWidth) || screenWidth <= 0) {
           resultArea.style.display = "none";
           document.getElementById("exportBtn").style.display = "none";
-          document.getElementById("quoteSection").classList.remove("visible");
+          document.getElementById('quoteSection').classList.remove('visible');
           return;
         }
 
@@ -3568,7 +3773,7 @@
         );
         if (!projector) {
           resultArea.style.display = "none";
-          document.getElementById("quoteSection").classList.remove("visible");
+          document.getElementById('quoteSection').classList.remove('visible');
           return;
         }
 
@@ -3584,7 +3789,7 @@
             document.getElementById("throwRatioText").textContent = "—";
             document.getElementById("throwDistanceText").textContent = "—";
             updateMatchingProjectors();
-            document.getElementById("quoteSection").classList.remove("visible");
+          document.getElementById('quoteSection').classList.remove('visible');
             return;
           }
           const lens = projector.lenses[parseInt(lensIdx)];
@@ -3829,7 +4034,7 @@
         // Show quote generator for this projector
         if (projector) {
           const prevId = window._quoteLastProjectorId;
-          const currId = projector.brand + "|" + projector.model;
+          const currId = projector.brand + '|' + projector.model;
           if (prevId !== currId) {
             window._quoteLastProjectorId = currId;
             quoteShowFor(projector);
@@ -4243,6 +4448,7 @@
         a.click();
       }
 
+
       // ═══════════════════════════════════════════
       //  DYNAMIC QUOTE GENERATOR
       // ═══════════════════════════════════════════
@@ -4252,74 +4458,55 @@
 
       function quoteInit() {
         // Set today's date
-        const today = new Date().toISOString().split("T")[0];
-        document.getElementById("qDate").value = today;
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('qDate').value = today;
         // Auto-generate quote number
-        const num = "Q-" + Date.now().toString().slice(-6);
-        document.getElementById("qNumber").value = num;
+        const num = 'Q-' + Date.now().toString().slice(-6);
+        document.getElementById('qNumber').value = num;
       }
 
       function quoteShowFor(projector) {
         quoteProjectorData = projector;
-        const section = document.getElementById("quoteSection");
-        section.classList.add("visible");
+        const section = document.getElementById('quoteSection');
+        section.classList.add('visible');
         // Clear existing items and add the projector as first item
         quoteItems = [];
         // Add projector as line item
-        const projLabel =
-          projector.brand +
-          " " +
-          projector.model +
-          (projector.lumens ? " – " + projector.lumens + " לומן" : "");
+        const projLabel = projector.brand + ' ' + projector.model +
+          (projector.lumens ? ' – ' + projector.lumens + ' לומן' : '');
         quoteItems.push({ desc: projLabel, qty: 1, price: 0 });
         // Add common accessories
-        quoteItems.push({ desc: "התקנה ותשתית", qty: 1, price: 0 });
-        quoteItems.push({ desc: "כבלים ואביזרים", qty: 1, price: 0 });
+        quoteItems.push({ desc: 'התקנה ותשתית', qty: 1, price: 0 });
+        quoteItems.push({ desc: 'כבלים ואביזרים', qty: 1, price: 0 });
         quoteRenderItems();
         quoteRecalc();
         // (no auto-scroll — user scrolls manually)
       }
 
       function quoteRenderItems() {
-        const list = document.getElementById("quoteItemsList");
-        list.innerHTML = "";
+        const list = document.getElementById('quoteItemsList');
+        list.innerHTML = '';
         quoteItems.forEach((item, i) => {
-          const row = document.createElement("div");
-          row.className = "quote-item-row";
+          const row = document.createElement('div');
+          row.className = 'quote-item-row';
           row.innerHTML =
-            '<input type="text" placeholder="תיאור פריט" value="' +
-            escHtml(item.desc) +
-            '" ' +
-            'oninput="quoteItems[' +
-            i +
-            '].desc=this.value;quoteRecalc()" />' +
-            '<input type="number" placeholder="כמות" min="1" value="' +
-            item.qty +
-            '" ' +
-            'oninput="quoteItems[' +
-            i +
-            '].qty=parseFloat(this.value)||1;quoteRecalc()" />' +
-            '<input type="number" placeholder="₪ מחיר" min="0" value="' +
-            (item.price || "") +
-            '" ' +
-            'oninput="quoteItems[' +
-            i +
-            '].price=parseFloat(this.value)||0;quoteRecalc()" />' +
-            '<button class="remove-item-btn" onclick="quoteRemoveItem(' +
-            i +
-            ')">×</button>';
+            '<input type="text" placeholder="תיאור פריט" value="' + escHtml(item.desc) + '" ' +
+              'oninput="quoteItems[' + i + '].desc=this.value;quoteRecalc()" />' +
+            '<input type="number" placeholder="כמות" min="1" value="' + item.qty + '" ' +
+              'oninput="quoteItems[' + i + '].qty=parseFloat(this.value)||1;quoteRecalc()" />' +
+            '<input type="number" placeholder="₪ מחיר" min="0" value="' + (item.price||'') + '" ' +
+              'oninput="quoteItems[' + i + '].price=parseFloat(this.value)||0;quoteRecalc()" />' +
+            '<button class="remove-item-btn" onclick="quoteRemoveItem(' + i + ')">×</button>';
           list.appendChild(row);
         });
       }
 
       function quoteAddItem() {
-        quoteItems.push({ desc: "", qty: 1, price: 0 });
+        quoteItems.push({ desc: '', qty: 1, price: 0 });
         quoteRenderItems();
         quoteRecalc();
         // Focus new item desc
-        const inputs = document.querySelectorAll(
-          ".quote-item-row input[type=text]",
-        );
+        const inputs = document.querySelectorAll('.quote-item-row input[type=text]');
         if (inputs.length) inputs[inputs.length - 1].focus();
       }
 
@@ -4330,197 +4517,115 @@
       }
 
       function quoteRecalc() {
-        const subtotal = quoteItems.reduce((s, it) => s + it.qty * it.price, 0);
-        const discPct =
-          parseFloat(document.getElementById("qDiscount").value) || 0;
-        const vatPct = parseFloat(document.getElementById("qVat").value) || 0;
-        const discAmt = (subtotal * discPct) / 100;
+        const subtotal = quoteItems.reduce((s, it) => s + (it.qty * it.price), 0);
+        const discPct = parseFloat(document.getElementById('qDiscount').value) || 0;
+        const vatPct = parseFloat(document.getElementById('qVat').value) || 0;
+        const discAmt = subtotal * discPct / 100;
         const afterDisc = subtotal - discAmt;
-        const vatAmt = (afterDisc * vatPct) / 100;
+        const vatAmt = afterDisc * vatPct / 100;
         const total = afterDisc + vatAmt;
 
-        const fmt = (n) =>
-          "₪" +
-          n.toLocaleString("he-IL", {
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0,
-          });
+        const fmt = (n) => '₪' + n.toLocaleString('he-IL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
-        document.getElementById("qSubtotal").textContent = fmt(subtotal);
-        document.getElementById("qDiscountLabel").textContent =
-          "הנחה " + (discPct ? "(" + discPct + "%)" : "");
-        document.getElementById("qDiscountAmt").textContent = discPct
-          ? "–" + fmt(discAmt)
-          : "—";
-        document.getElementById("qVatLabel").textContent =
-          'מע"מ ' + vatPct + "%";
-        document.getElementById("qVatAmt").textContent = vatPct
-          ? fmt(vatAmt)
-          : "—";
-        document.getElementById("qTotal").textContent = fmt(total);
+        document.getElementById('qSubtotal').textContent = fmt(subtotal);
+        document.getElementById('qDiscountLabel').textContent = 'הנחה ' + (discPct ? '(' + discPct + '%)' : '');
+        document.getElementById('qDiscountAmt').textContent = discPct ? '–' + fmt(discAmt) : '—';
+        document.getElementById('qVatLabel').textContent = 'מע"מ ' + vatPct + '%';
+        document.getElementById('qVatAmt').textContent = vatPct ? fmt(vatAmt) : '—';
+        document.getElementById('qTotal').textContent = fmt(total);
       }
 
       function quotePreview() {
-        const clientName =
-          document.getElementById("qClientName").value || "לקוח";
-        const qNum = document.getElementById("qNumber").value || "—";
-        const qDate = document.getElementById("qDate").value;
-        const qValidity = document.getElementById("qValidity").value;
-        const qLocation = document.getElementById("qLocation").value;
-        const fmt = (n) =>
-          "₪" + n.toLocaleString("he-IL", { minimumFractionDigits: 0 });
+        const clientName = document.getElementById('qClientName').value || 'לקוח';
+        const qNum = document.getElementById('qNumber').value || '—';
+        const qDate = document.getElementById('qDate').value;
+        const qValidity = document.getElementById('qValidity').value;
+        const qLocation = document.getElementById('qLocation').value;
+        const fmt = (n) => '₪' + n.toLocaleString('he-IL', { minimumFractionDigits: 0 });
 
         // ── Logo ──
-        const logoArea = document.getElementById("qpLogoArea");
+        const logoArea = document.getElementById('qpLogoArea');
         if (window._quoteLogo) {
-          logoArea.innerHTML =
-            '<img src="' +
-            window._quoteLogo +
-            '" style="max-height:52px;max-width:160px;object-fit:contain" />';
+          logoArea.innerHTML = '<img src="' + window._quoteLogo + '" style="max-height:52px;max-width:160px;object-fit:contain" />';
         } else {
-          logoArea.innerHTML = "";
+          logoArea.innerHTML = '';
         }
 
         // ── Doc number ──
-        document.getElementById("qpDocNum").textContent = "מס' " + qNum;
+        document.getElementById('qpDocNum').textContent = 'מס\' ' + qNum;
 
         // ── Meta strip ──
         const expiryDate = qDate
-          ? new Date(
-              new Date(qDate).getTime() + parseInt(qValidity) * 86400000,
-            ).toLocaleDateString("he-IL")
-          : "—";
-        document.getElementById("qpMetaStrip").innerHTML =
-          '<div class="qp-meta-cell"><span>ללקוח</span><strong>' +
-          escHtml(clientName) +
-          "</strong></div>" +
-          '<div class="qp-meta-cell"><span>מספר הצעה</span><strong>' +
-          escHtml(qNum) +
-          "</strong></div>" +
-          '<div class="qp-meta-cell"><span>תאריך הצעה</span><strong>' +
-          (qDate ? new Date(qDate).toLocaleDateString("he-IL") : "—") +
-          "</strong></div>" +
-          '<div class="qp-meta-cell"><span>תוקף עד</span><strong>' +
-          expiryDate +
-          "</strong></div>";
+          ? new Date(new Date(qDate).getTime() + parseInt(qValidity) * 86400000).toLocaleDateString('he-IL')
+          : '—';
+        document.getElementById('qpMetaStrip').innerHTML =
+          '<div class="qp-meta-cell"><span>ללקוח</span><strong>' + escHtml(clientName) + '</strong></div>' +
+          '<div class="qp-meta-cell"><span>מספר הצעה</span><strong>' + escHtml(qNum) + '</strong></div>' +
+          '<div class="qp-meta-cell"><span>תאריך הצעה</span><strong>' + (qDate ? new Date(qDate).toLocaleDateString('he-IL') : '—') + '</strong></div>' +
+          '<div class="qp-meta-cell"><span>תוקף עד</span><strong>' + expiryDate + '</strong></div>';
 
         // ── Projector spec block ──
-        const specBlock = document.getElementById("qpSpecBlock");
+        const specBlock = document.getElementById('qpSpecBlock');
         if (quoteProjectorData) {
           const p = quoteProjectorData;
-          let specItems = "";
-          if (p.lumens)
-            specItems +=
-              '<div class="qp-spec-item"><span>עוצמת אור</span><strong>' +
-              p.lumens +
-              " lm</strong></div>";
-          if (p.resolution)
-            specItems +=
-              '<div class="qp-spec-item"><span>רזולוציה</span><strong>' +
-              p.resolution +
-              "</strong></div>";
-          if (p.ratio)
-            specItems +=
-              '<div class="qp-spec-item"><span>יחס תמונה</span><strong>' +
-              p.ratio +
-              "</strong></div>";
-          if (p.throwRatio)
-            specItems +=
-              '<div class="qp-spec-item"><span>יחס הטלה</span><strong>' +
-              p.throwRatio +
-              "</strong></div>";
-          if (p.lens)
-            specItems +=
-              '<div class="qp-spec-item"><span>עדשה</span><strong>' +
-              p.lens +
-              "</strong></div>";
+          let specItems = '';
+          if (p.lumens)      specItems += '<div class="qp-spec-item"><span>עוצמת אור</span><strong>' + p.lumens + ' lm</strong></div>';
+          if (p.resolution)  specItems += '<div class="qp-spec-item"><span>רזולוציה</span><strong>' + p.resolution + '</strong></div>';
+          if (p.ratio)       specItems += '<div class="qp-spec-item"><span>יחס תמונה</span><strong>' + p.ratio + '</strong></div>';
+          if (p.throwRatio)  specItems += '<div class="qp-spec-item"><span>יחס הטלה</span><strong>' + p.throwRatio + '</strong></div>';
+          if (p.lens)        specItems += '<div class="qp-spec-item"><span>עדשה</span><strong>' + p.lens + '</strong></div>';
           const locLine = qLocation
-            ? '<div class="qp-spec-location">📍 <span>' +
-              escHtml(qLocation) +
-              "</span></div>"
-            : "";
+            ? '<div class="qp-spec-location">📍 <span>' + escHtml(qLocation) + '</span></div>'
+            : '';
           specBlock.innerHTML =
-            '<span class="spec-title">📽 ' +
-            escHtml(p.brand) +
-            " " +
-            escHtml(p.model) +
-            "</span>" +
-            '<div class="qp-spec-grid">' +
-            specItems +
-            "</div>" +
+            '<span class="spec-title">📽 ' + escHtml(p.brand) + ' ' + escHtml(p.model) + '</span>' +
+            '<div class="qp-spec-grid">' + specItems + '</div>' +
             locLine;
-          specBlock.style.display = "";
+          specBlock.style.display = '';
         } else {
-          specBlock.style.display = "none";
+          specBlock.style.display = 'none';
         }
 
         // ── Items table ──
-        const tbody = document.getElementById("qpTableBody");
-        tbody.innerHTML = "";
-        quoteItems.forEach((item) => {
+        const tbody = document.getElementById('qpTableBody');
+        tbody.innerHTML = '';
+        quoteItems.forEach(item => {
           const line = item.qty * item.price;
-          const tr = document.createElement("tr");
+          const tr = document.createElement('tr');
           tr.innerHTML =
-            "<td>" +
-            escHtml(item.desc || "—") +
-            "</td>" +
-            '<td class="num">' +
-            item.qty +
-            "</td>" +
-            '<td class="price">' +
-            fmt(item.price) +
-            "</td>" +
-            '<td class="price">' +
-            fmt(line) +
-            "</td>";
+            '<td>' + escHtml(item.desc || '—') + '</td>' +
+            '<td class="num">' + item.qty + '</td>' +
+            '<td class="price">' + fmt(item.price) + '</td>' +
+            '<td class="price">' + fmt(line) + '</td>';
           tbody.appendChild(tr);
         });
 
         // ── Totals ──
         const subtotal = quoteItems.reduce((s, it) => s + it.qty * it.price, 0);
-        const discPct =
-          parseFloat(document.getElementById("qDiscount").value) || 0;
-        const vatPct = parseFloat(document.getElementById("qVat").value) || 0;
-        const discAmt = (subtotal * discPct) / 100;
+        const discPct = parseFloat(document.getElementById('qDiscount').value) || 0;
+        const vatPct  = parseFloat(document.getElementById('qVat').value) || 0;
+        const discAmt  = subtotal * discPct / 100;
         const afterDisc = subtotal - discAmt;
-        const vatAmt = (afterDisc * vatPct) / 100;
-        const total = afterDisc + vatAmt;
+        const vatAmt   = afterDisc * vatPct / 100;
+        const total    = afterDisc + vatAmt;
 
-        let totHtml =
-          '<div class="qp-tot-row"><span>סכום ביניים</span><span>' +
-          fmt(subtotal) +
-          "</span></div>";
-        if (discPct)
-          totHtml +=
-            '<div class="qp-tot-row"><span>הנחה (' +
-            discPct +
-            "%)</span><span>–" +
-            fmt(discAmt) +
-            "</span></div>";
-        if (vatPct)
-          totHtml +=
-            '<div class="qp-tot-row"><span>מע"מ ' +
-            vatPct +
-            "%</span><span>" +
-            fmt(vatAmt) +
-            "</span></div>";
-        totHtml +=
-          '<div class="qp-tot-row grand"><span>סה"כ לתשלום</span><span>' +
-          fmt(total) +
-          "</span></div>";
-        document.getElementById("qpTotals").innerHTML = totHtml;
+        let totHtml = '<div class="qp-tot-row"><span>סכום ביניים</span><span>' + fmt(subtotal) + '</span></div>';
+        if (discPct) totHtml += '<div class="qp-tot-row"><span>הנחה (' + discPct + '%)</span><span>–' + fmt(discAmt) + '</span></div>';
+        if (vatPct)  totHtml += '<div class="qp-tot-row"><span>מע"מ ' + vatPct + '%</span><span>' + fmt(vatAmt) + '</span></div>';
+        totHtml += '<div class="qp-tot-row grand"><span>סה"כ לתשלום</span><span>' + fmt(total) + '</span></div>';
+        document.getElementById('qpTotals').innerHTML = totHtml;
 
         // ── Notes ──
         if (qLocation && !quoteProjectorData) {
-          document.getElementById("qpNotes").style.display = "block";
-          document.getElementById("qpNotesText").textContent = qLocation;
+          document.getElementById('qpNotes').style.display = 'block';
+          document.getElementById('qpNotesText').textContent = qLocation;
         } else if (qLocation) {
-          document.getElementById("qpNotes").style.display = "none";
+          document.getElementById('qpNotes').style.display = 'none';
         } else {
-          document.getElementById("qpNotes").style.display = "none";
+          document.getElementById('qpNotes').style.display = 'none';
         }
 
-        document.getElementById("quoteModal").classList.add("open");
+        document.getElementById('quoteModal').classList.add('open');
       }
 
       // ── Logo helpers ──
@@ -4528,230 +4633,151 @@
         const file = input.files[0];
         if (!file) return;
         const reader = new FileReader();
-        reader.onload = function (e) {
+        reader.onload = function(e) {
           window._quoteLogo = e.target.result;
-          document.getElementById("logoPreviewImg").src = e.target.result;
-          document.getElementById("logoPreviewImg").style.display = "block";
-          document.getElementById("logoUploadHint").style.display = "none";
-          document.getElementById("logoRemoveBtn").style.display =
-            "inline-flex";
+          document.getElementById('logoPreviewImg').src = e.target.result;
+          document.getElementById('logoPreviewImg').style.display = 'block';
+          document.getElementById('logoUploadHint').style.display = 'none';
+          document.getElementById('logoRemoveBtn').style.display = 'inline-flex';
         };
         reader.readAsDataURL(file);
       }
       function quoteClearLogo() {
         window._quoteLogo = null;
-        document.getElementById("logoPreviewImg").src = "";
-        document.getElementById("logoPreviewImg").style.display = "none";
-        document.getElementById("logoUploadHint").style.display = "inline";
-        document.getElementById("logoRemoveBtn").style.display = "none";
-        document.getElementById("qLogoInput").value = "";
+        document.getElementById('logoPreviewImg').src = '';
+        document.getElementById('logoPreviewImg').style.display = 'none';
+        document.getElementById('logoUploadHint').style.display = 'inline';
+        document.getElementById('logoRemoveBtn').style.display = 'none';
+        document.getElementById('qLogoInput').value = '';
       }
 
       function quoteExportTxt() {
-        const clientName =
-          document.getElementById("qClientName").value || "לקוח";
-        const qNum = document.getElementById("qNumber").value || "—";
-        const qDate = document.getElementById("qDate").value;
-        const qValidity = document.getElementById("qValidity").value;
-        const qLocation = document.getElementById("qLocation").value;
-        const discPct =
-          parseFloat(document.getElementById("qDiscount").value) || 0;
-        const vatPct = parseFloat(document.getElementById("qVat").value) || 0;
+        const clientName = document.getElementById('qClientName').value || 'לקוח';
+        const qNum = document.getElementById('qNumber').value || '—';
+        const qDate = document.getElementById('qDate').value;
+        const qValidity = document.getElementById('qValidity').value;
+        const qLocation = document.getElementById('qLocation').value;
+        const discPct = parseFloat(document.getElementById('qDiscount').value) || 0;
+        const vatPct = parseFloat(document.getElementById('qVat').value) || 0;
 
         const subtotal = quoteItems.reduce((s, it) => s + it.qty * it.price, 0);
-        const discAmt = (subtotal * discPct) / 100;
+        const discAmt = subtotal * discPct / 100;
         const afterDisc = subtotal - discAmt;
-        const vatAmt = (afterDisc * vatPct) / 100;
+        const vatAmt = afterDisc * vatPct / 100;
         const total = afterDisc + vatAmt;
-        const fmt = (n) =>
-          "₪" + n.toLocaleString("he-IL", { minimumFractionDigits: 0 });
+        const fmt = (n) => '₪' + n.toLocaleString('he-IL', { minimumFractionDigits: 0 });
 
         let lines = [
-          "הצעת מחיר",
-          "==========",
-          "ללקוח: " + clientName,
-          "מספר: " + qNum,
-          "תאריך: " +
-            (qDate ? new Date(qDate).toLocaleDateString("he-IL") : "—"),
-          "תוקף: " + qValidity + " ימים",
-          "",
+          'הצעת מחיר',
+          '==========',
+          'ללקוח: ' + clientName,
+          'מספר: ' + qNum,
+          'תאריך: ' + (qDate ? new Date(qDate).toLocaleDateString('he-IL') : '—'),
+          'תוקף: ' + qValidity + ' ימים',
+          '',
         ];
         if (quoteProjectorData) {
           const p = quoteProjectorData;
-          lines.push("מקרן: " + p.brand + " " + p.model);
-          if (p.lumens) lines.push("לומן: " + p.lumens);
-          if (p.resolution) lines.push("רזולוציה: " + p.resolution);
-          lines.push("");
+          lines.push('מקרן: ' + p.brand + ' ' + p.model);
+          if (p.lumens) lines.push('לומן: ' + p.lumens);
+          if (p.resolution) lines.push('רזולוציה: ' + p.resolution);
+          lines.push('');
         }
-        if (qLocation) {
-          lines.push("מיקום: " + qLocation);
-          lines.push("");
-        }
+        if (qLocation) { lines.push('מיקום: ' + qLocation); lines.push(''); }
 
-        lines.push("פריטים:");
-        lines.push("-".repeat(40));
-        quoteItems.forEach((it) => {
-          lines.push(
-            it.desc +
-              "  x" +
-              it.qty +
-              "  " +
-              fmt(it.price) +
-              "  = " +
-              fmt(it.qty * it.price),
-          );
+        lines.push('פריטים:');
+        lines.push('-'.repeat(40));
+        quoteItems.forEach(it => {
+          lines.push(it.desc + '  x' + it.qty + '  ' + fmt(it.price) + '  = ' + fmt(it.qty * it.price));
         });
-        lines.push("-".repeat(40));
-        lines.push("סכום ביניים: " + fmt(subtotal));
-        if (discPct) lines.push("הנחה (" + discPct + "%): –" + fmt(discAmt));
-        if (vatPct) lines.push('מע"מ ' + vatPct + "%: " + fmt(vatAmt));
+        lines.push('-'.repeat(40));
+        lines.push('סכום ביניים: ' + fmt(subtotal));
+        if (discPct) lines.push('הנחה (' + discPct + '%): –' + fmt(discAmt));
+        if (vatPct) lines.push('מע"מ ' + vatPct + '%: ' + fmt(vatAmt));
         lines.push('סה"כ: ' + fmt(total));
 
-        const text = lines.join("\n");
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(
-          new Blob([text], { type: "text/plain;charset=utf-8" }),
-        );
-        a.download = "quote-" + qNum + ".txt";
+        const text = lines.join('\n');
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
+        a.download = 'quote-' + qNum + '.txt';
         a.click();
       }
 
       function quoteCopyText() {
-        const el = document.querySelector(".quote-preview-box .qp-body");
-        const text = el ? el.innerText : "";
+        const el = document.querySelector('.quote-preview-box .qp-body');
+        const text = el ? el.innerText : '';
         navigator.clipboard.writeText(text).then(() => {
-          const btn = document.querySelector(".qp-copy-btn");
-          btn.textContent = "✓ הועתק!";
-          setTimeout(() => {
-            btn.textContent = "📋 העתק טקסט";
-          }, 1800);
+          const btn = document.querySelector('.qp-copy-btn');
+          btn.textContent = '✓ הועתק!';
+          setTimeout(() => { btn.textContent = '📋 העתק טקסט'; }, 1800);
         });
       }
 
+
       function quotePrintFull() {
         // ── Gather all app data ──
-        const brand =
-          (document.getElementById("brandSelect").selectedOptions[0] || {})
-            .text || "—";
-        const model =
-          (document.getElementById("modelSelect").selectedOptions[0] || {})
-            .text || "—";
-        const lens =
-          document.getElementById("lensSelect") &&
-          document.getElementById("lensSelect").style.display !== "none"
-            ? (document.getElementById("lensSelect").selectedOptions[0] || {})
-                .text || ""
-            : "";
-        const screenW = document.getElementById("screenWidth").value || "—";
-        const screenDiag = document.getElementById("screenSizeText")
-          ? document.getElementById("screenSizeText").textContent
-          : "—";
-        const throwRatio = document.getElementById("throwRatioText")
-          ? document.getElementById("throwRatioText").textContent
-          : "—";
-        const throwDist = document.getElementById("throwDistanceText")
-          ? document.getElementById("throwDistanceText").textContent
-          : "—";
-        const actualDist = document.getElementById("actualDistance").value;
-        const resolution = document.getElementById("modelResolution")
-          ? document.getElementById("modelResolution").textContent
-          : "—";
-        const lumens = document.getElementById("modelLumens")
-          ? document.getElementById("modelLumens").textContent
-          : "—";
-        const aspect = document.getElementById("modelAspect")
-          ? document.getElementById("modelAspect").textContent
-          : "—";
-        const throwRange = document.getElementById("modelThrow")
-          ? document.getElementById("modelThrow").textContent
-          : "—";
-        const status = document.getElementById("statusText")
-          ? document.getElementById("statusText").textContent
-          : "";
+        const brand    = (document.getElementById('brandSelect').selectedOptions[0] || {}).text || '—';
+        const model    = (document.getElementById('modelSelect').selectedOptions[0] || {}).text || '—';
+        const lens     = document.getElementById('lensSelect') && document.getElementById('lensSelect').style.display !== 'none'
+                           ? (document.getElementById('lensSelect').selectedOptions[0] || {}).text || ''
+                           : '';
+        const screenW  = document.getElementById('screenWidth').value || '—';
+        const screenDiag = document.getElementById('screenSizeText') ? document.getElementById('screenSizeText').textContent : '—';
+        const throwRatio = document.getElementById('throwRatioText') ? document.getElementById('throwRatioText').textContent : '—';
+        const throwDist  = document.getElementById('throwDistanceText') ? document.getElementById('throwDistanceText').textContent : '—';
+        const actualDist = document.getElementById('actualDistance').value;
+        const resolution = document.getElementById('modelResolution') ? document.getElementById('modelResolution').textContent : '—';
+        const lumens     = document.getElementById('modelLumens') ? document.getElementById('modelLumens').textContent : '—';
+        const aspect     = document.getElementById('modelAspect') ? document.getElementById('modelAspect').textContent : '—';
+        const throwRange = document.getElementById('modelThrow') ? document.getElementById('modelThrow').textContent : '—';
+        const status     = document.getElementById('statusText') ? document.getElementById('statusText').textContent : '';
 
         // ── Quote data ──
-        const clientName = document.getElementById("qClientName").value || "—";
-        const qNum = document.getElementById("qNumber").value || "—";
-        const qDate = document.getElementById("qDate").value;
-        const qValidity = document.getElementById("qValidity").value;
-        const qLocation = document.getElementById("qLocation").value;
-        const discPct =
-          parseFloat(document.getElementById("qDiscount").value) || 0;
-        const vatPct = parseFloat(document.getElementById("qVat").value) || 0;
-        const subtotal = quoteItems.reduce((s, it) => s + it.qty * it.price, 0);
-        const discAmt = (subtotal * discPct) / 100;
-        const afterDisc = subtotal - discAmt;
-        const vatAmt = (afterDisc * vatPct) / 100;
-        const total = afterDisc + vatAmt;
-        const fmt = (n) =>
-          "&#8362;" + n.toLocaleString("he-IL", { minimumFractionDigits: 0 });
+        const clientName = document.getElementById('qClientName').value || '—';
+        const qNum       = document.getElementById('qNumber').value || '—';
+        const qDate      = document.getElementById('qDate').value;
+        const qValidity  = document.getElementById('qValidity').value;
+        const qLocation  = document.getElementById('qLocation').value;
+        const discPct    = parseFloat(document.getElementById('qDiscount').value) || 0;
+        const vatPct     = parseFloat(document.getElementById('qVat').value) || 0;
+        const subtotal   = quoteItems.reduce((s, it) => s + it.qty * it.price, 0);
+        const discAmt    = subtotal * discPct / 100;
+        const afterDisc  = subtotal - discAmt;
+        const vatAmt     = afterDisc * vatPct / 100;
+        const total      = afterDisc + vatAmt;
+        const fmt        = (n) => '&#8362;' + n.toLocaleString('he-IL', { minimumFractionDigits: 0 });
         const expiryDate = qDate
-          ? new Date(
-              new Date(qDate).getTime() + parseInt(qValidity) * 86400000,
-            ).toLocaleDateString("he-IL")
-          : "—";
-        const dateStr = qDate
-          ? new Date(qDate).toLocaleDateString("he-IL")
-          : "—";
+          ? new Date(new Date(qDate).getTime() + parseInt(qValidity) * 86400000).toLocaleDateString('he-IL')
+          : '—';
+        const dateStr = qDate ? new Date(qDate).toLocaleDateString('he-IL') : '—';
 
         // ── SVG snapshot ──
-        const svgEl = document.getElementById("vizSvg");
-        const svgHtml = svgEl ? svgEl.outerHTML : "";
+        const svgEl = document.getElementById('vizSvg');
+        const svgHtml = svgEl ? svgEl.outerHTML : '';
 
         // ── Logo ──
         const logoHtml = window._quoteLogo
-          ? '<img src="' +
-            window._quoteLogo +
-            '" style="max-height:60px;max-width:200px;object-fit:contain" />'
-          : "";
+          ? '<img src="' + window._quoteLogo + '" style="max-height:60px;max-width:200px;object-fit:contain" />'
+          : '';
 
         // ── Items table rows ──
-        let itemRows = "";
+        let itemRows = '';
         quoteItems.forEach((item, i) => {
           const line = item.qty * item.price;
-          const bg = i % 2 === 1 ? "background:#f9fafb;" : "";
-          itemRows +=
-            '<tr style="' +
-            bg +
-            '">' +
-            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0">' +
-            escHtml(item.desc || "—") +
-            "</td>" +
-            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:center">' +
-            item.qty +
-            "</td>" +
-            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:left;font-variant-numeric:tabular-nums">' +
-            fmt(item.price) +
-            "</td>" +
-            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:left;font-weight:700">' +
-            fmt(line) +
-            "</td>" +
-            "</tr>";
+          const bg = i % 2 === 1 ? 'background:#f9fafb;' : '';
+          itemRows += '<tr style="' + bg + '">' +
+            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0">' + escHtml(item.desc || '—') + '</td>' +
+            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:center">' + item.qty + '</td>' +
+            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:left;font-variant-numeric:tabular-nums">' + fmt(item.price) + '</td>' +
+            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:left;font-weight:700">' + fmt(line) + '</td>' +
+            '</tr>';
         });
 
         // ── Totals rows ──
-        let totRows =
-          '<tr><td colspan="3" style="text-align:left;padding:8px 12px;color:#555;font-size:13px">סכום ביניים</td><td style="padding:8px 12px;text-align:left;font-weight:600">' +
-          fmt(subtotal) +
-          "</td></tr>";
-        if (discPct)
-          totRows +=
-            '<tr><td colspan="3" style="text-align:left;padding:6px 12px;color:#555;font-size:12px">הנחה (' +
-            discPct +
-            '%)</td><td style="padding:6px 12px;text-align:left;color:#dc2626">&#8722;' +
-            fmt(discAmt) +
-            "</td></tr>";
-        if (vatPct)
-          totRows +=
-            '<tr><td colspan="3" style="text-align:left;padding:6px 12px;color:#555;font-size:12px">מע"מ ' +
-            vatPct +
-            '%</td><td style="padding:6px 12px;text-align:left">' +
-            fmt(vatAmt) +
-            "</td></tr>";
-        totRows +=
-          '<tr style="background:#1d4ed8"><td colspan="3" style="text-align:left;padding:11px 12px;color:white;font-weight:800;font-size:15px">סה"כ לתשלום</td><td style="padding:11px 12px;text-align:left;color:white;font-weight:800;font-size:15px">' +
-          fmt(total) +
-          "</td></tr>";
+        let totRows = '<tr><td colspan="3" style="text-align:left;padding:8px 12px;color:#555;font-size:13px">סכום ביניים</td><td style="padding:8px 12px;text-align:left;font-weight:600">' + fmt(subtotal) + '</td></tr>';
+        if (discPct) totRows += '<tr><td colspan="3" style="text-align:left;padding:6px 12px;color:#555;font-size:12px">הנחה (' + discPct + '%)</td><td style="padding:6px 12px;text-align:left;color:#dc2626">&#8722;' + fmt(discAmt) + '</td></tr>';
+        if (vatPct)  totRows += '<tr><td colspan="3" style="text-align:left;padding:6px 12px;color:#555;font-size:12px">מע"מ ' + vatPct + '%</td><td style="padding:6px 12px;text-align:left">' + fmt(vatAmt) + '</td></tr>';
+        totRows += '<tr style="background:#1d4ed8"><td colspan="3" style="text-align:left;padding:11px 12px;color:white;font-weight:800;font-size:15px">סה"כ לתשלום</td><td style="padding:11px 12px;text-align:left;color:white;font-weight:800;font-size:15px">' + fmt(total) + '</td></tr>';
 
         const html = `<!DOCTYPE html>
 <html dir="rtl" lang="he">
@@ -4835,14 +4861,14 @@
   <!-- Projector -->
   <div class="section-title">📽 פרטי המקרן</div>
   <div class="spec-block">
-    <div class="spec-model">${escHtml(brand)} ${escHtml(model)}${lens ? " — " + escHtml(lens) : ""}</div>
+    <div class="spec-model">${escHtml(brand)} ${escHtml(model)}${lens ? ' — ' + escHtml(lens) : ''}</div>
     <div class="spec-grid">
       <div class="spec-item"><div class="spec-item-label">לומן</div><div class="spec-item-val">${lumens}</div></div>
       <div class="spec-item"><div class="spec-item-label">רזולוציה</div><div class="spec-item-val">${resolution}</div></div>
       <div class="spec-item"><div class="spec-item-label">יחס תמונה</div><div class="spec-item-val">${aspect}</div></div>
       <div class="spec-item"><div class="spec-item-label">יחס עדשה</div><div class="spec-item-val">${throwRatio}</div></div>
       <div class="spec-item"><div class="spec-item-label">טווח התקנה</div><div class="spec-item-val">${throwRange}</div></div>
-      ${status ? '<div class="spec-item"><div class="spec-item-label">מצב</div><div class="spec-item-val">' + escHtml(status) + "</div></div>" : ""}
+      ${status ? '<div class="spec-item"><div class="spec-item-label">מצב</div><div class="spec-item-val">' + escHtml(status) + '</div></div>' : ''}
     </div>
   </div>
 
@@ -4851,7 +4877,7 @@
   <div class="calc-grid">
     <div class="calc-item"><div class="calc-label">רוחב מסך</div><div class="calc-val">${screenW} ס"מ</div></div>
     <div class="calc-item"><div class="calc-label">אלכסון מסך</div><div class="calc-val">${screenDiag}</div></div>
-    <div class="calc-item"><div class="calc-label">מרחק עדשה</div><div class="calc-val accent">${actualDist ? actualDist + ' ס"מ' : "—"}</div></div>
+    <div class="calc-item"><div class="calc-label">מרחק עדשה</div><div class="calc-val accent">${actualDist ? actualDist + ' ס"מ' : '—'}</div></div>
     <div class="calc-item"><div class="calc-label">טווח התקנה מחושב</div><div class="calc-val accent">${throwDist}</div></div>
   </div>
 
@@ -4861,7 +4887,7 @@
 
   <!-- Quote items -->
   <div class="section-title">💰 הצעת מחיר</div>
-  ${qLocation ? '<div class="notes-block"><div class="notes-label">מיקום התקנה</div>' + escHtml(qLocation) + "</div>" : ""}
+  ${qLocation ? '<div class="notes-block"><div class="notes-label">מיקום התקנה</div>' + escHtml(qLocation) + '</div>' : ''}
   <table class="items-table">
     <thead>
       <tr>
@@ -4886,23 +4912,92 @@
 </body>
 </html>`;
 
-        const w = window.open("", "_blank");
+        const w = window.open('', '_blank');
         w.document.write(html);
         w.document.close();
       }
 
-      function escHtml(s) {
-        return String(s)
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;");
+
+      async function quoteShare() {
+        // Build the print window HTML first (reuse quotePrintFull logic but return the HTML)
+        const html = quoteGenerateHTML();
+
+        // Try Web Share API with a blob file (PDF-like)
+        const blob = new Blob([html], { type: 'text/html' });
+        const file = new File([blob], 'הצעת_מחיר.html', { type: 'text/html' });
+
+        if (navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({
+              title: 'הצעת מחיר',
+              text: 'הצעת מחיר מצורפת',
+              files: [file]
+            });
+            return;
+          } catch(e) {
+            if (e.name !== 'AbortError') console.warn('share failed:', e);
+          }
+        }
+
+        // Fallback: try text share
+        const textContent = quoteGenerateText();
+        if (navigator.share) {
+          try {
+            await navigator.share({ title: 'הצעת מחיר', text: textContent });
+            return;
+          } catch(e) {
+            if (e.name !== 'AbortError') console.warn('text share failed:', e);
+          }
+        }
+
+        // Last fallback: open print window (same as PDF button)
+        quotePrintFull();
       }
 
-      window.addEventListener("DOMContentLoaded", function () {
-        init();
-        quoteInit();
-      });
+      function quoteGenerateText() {
+        const clientName = document.getElementById('qClientName').value || '—';
+        const qNum       = document.getElementById('qNumber').value || '—';
+        const qDate      = document.getElementById('qDate').value;
+        const discPct    = parseFloat(document.getElementById('qDiscount').value) || 0;
+        const vatPct     = parseFloat(document.getElementById('qVat').value) || 0;
+        const subtotal   = quoteItems.reduce((s,it)=>s+it.qty*it.price,0);
+        const discAmt    = subtotal*discPct/100;
+        const afterDisc  = subtotal-discAmt;
+        const vatAmt     = afterDisc*vatPct/100;
+        const total      = afterDisc+vatAmt;
+        const fmt        = (n) => '₪'+n.toLocaleString('he-IL',{minimumFractionDigits:0});
+        const p          = quoteProjectorData;
+
+        let lines = [
+          '📋 הצעת מחיר',
+          'מספר: '+qNum,
+          'ללקוח: '+clientName,
+          qDate ? 'תאריך: '+new Date(qDate).toLocaleDateString('he-IL') : '',
+          '',
+        ];
+        if (p) {
+          lines.push('📽 מקרן: '+p.brand+' '+p.model);
+          if (p.lumens)     lines.push('   לומן: '+p.lumens);
+          if (p.resolution) lines.push('   רזולוציה: '+p.resolution);
+          lines.push('');
+        }
+        lines.push('פריטים:');
+        lines.push('─────────────────────────');
+        quoteItems.forEach(it => {
+          lines.push((it.desc||'—')+' × '+it.qty+'   '+fmt(it.qty*it.price));
+        });
+        lines.push('─────────────────────────');
+        if (discPct) lines.push('הנחה ('+discPct+'%): –'+fmt(discAmt));
+        if (vatPct)  lines.push('מע"מ '+vatPct+'%: '+fmt(vatAmt));
+        lines.push('סה"כ לתשלום: '+fmt(total));
+        return lines.filter(l=>l!==undefined).join('\n');
+      }
+
+      function escHtml(s) {
+        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+      }
+
+      window.addEventListener("DOMContentLoaded", function() { init(); quoteInit(); });
     </script>
   </body>
 </html>
