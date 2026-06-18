@@ -4261,6 +4261,26 @@
         const p          = quoteProjectorData;
         const logoHtml   = window._quoteLogo ? '<img src="'+window._quoteLogo+'" style="height:52px;max-width:160px;object-fit:contain">' : '';
 
+        // ── Visualization data ──
+        const g = (id) => { const el = document.getElementById(id); return el ? el.textContent.trim() : ''; };
+        const screenW    = document.getElementById('screenWidth') ? document.getElementById('screenWidth').value : '';
+        const screenDiag = g('screenSizeText');
+        const throwRatio = g('throwRatioText');
+        const throwDist  = g('throwDistanceText');
+        const actualDist = document.getElementById('actualDistance') ? document.getElementById('actualDistance').value : '';
+        const statusTxt  = g('statusText');
+
+        // SVG snapshot — inline with fixed dimensions for print
+        const svgEl = document.getElementById('vizSvg');
+        let svgHtml = '';
+        if (svgEl) {
+          const clone = svgEl.cloneNode(true);
+          clone.setAttribute('width', '100%');
+          clone.setAttribute('height', 'auto');
+          clone.style.cssText = 'display:block;max-width:100%;height:auto';
+          svgHtml = clone.outerHTML;
+        }
+
         // items rows
         let itemRows = '';
         quoteItems.forEach((item,i) => {
@@ -4284,6 +4304,15 @@
                 + chip('עדשה', p.lens);
         }
 
+        // viz data chips
+        const vcell = (label,val) => val ? `<div class="vcell"><div class="vcell-label">${label}</div><div class="vcell-val">${val}</div></div>` : '';
+        const vizCells = vcell('רוחב מסך', screenW ? screenW+' ס"מ' : '')
+          + vcell('אלכסון', screenDiag)
+          + vcell('יחס הטלה', throwRatio)
+          + vcell('טווח התקנה', throwDist)
+          + vcell('מרחק עדשה', actualDist ? actualDist+' ס"מ' : '')
+          + vcell('מצב', statusTxt);
+
         // totals
         let totRows = `<tr><td>סכום ביניים</td><td class="r">${fmt(subtotal)}</td></tr>`;
         if (discPct) totRows += `<tr><td>הנחה (${discPct}%)</td><td class="r red">&#8722;${fmt(discAmt)}</td></tr>`;
@@ -4298,13 +4327,11 @@
   * { box-sizing:border-box; margin:0; padding:0 }
   body { font-family: Arial, sans-serif; font-size:13px; color:#1a1a1a; background:white; direction:rtl; padding:28px 32px }
 
-  /* Header */
   .hdr { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:14px; border-bottom:3px solid #1d4ed8; margin-bottom:5px }
   .hdr-title { font-size:26px; font-weight:900; color:#1d4ed8; letter-spacing:-1px; line-height:1 }
   .hdr-sub { font-size:11px; color:#aaa; margin-top:4px }
   .bar { height:4px; background:linear-gradient(90deg,#1d4ed8,#60a5fa 60%,#e5e7eb); margin-bottom:22px }
 
-  /* Meta grid */
   .meta { display:grid; grid-template-columns:1fr 1fr; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; margin-bottom:18px }
   .meta-cell { padding:10px 14px; border-bottom:1px solid #f0f0f0 }
   .meta-cell:nth-child(odd) { border-left:1px solid #f0f0f0 }
@@ -4312,19 +4339,26 @@
   .meta-label { font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:.07em; margin-bottom:3px }
   .meta-val { font-size:14px; font-weight:700; color:#111 }
 
-  /* Projector block */
-  .proj { background:linear-gradient(135deg,#eff6ff,#eef2ff); border:1px solid #bfdbfe; border-radius:10px; padding:13px 15px; margin-bottom:18px }
+  .proj { background:linear-gradient(135deg,#eff6ff,#eef2ff); border:1px solid #bfdbfe; border-radius:10px; padding:13px 15px; margin-bottom:14px }
   .proj-name { font-size:15px; font-weight:900; color:#1d4ed8; margin-bottom:10px }
   .chips { display:flex; flex-wrap:wrap; gap:7px }
-  .chip { background:white; border:1px solid #dbeafe; border-radius:7px; padding:6px 10px; min-width:90px }
+  .chip { background:white; border:1px solid #dbeafe; border-radius:7px; padding:6px 10px; min-width:88px }
   .chip-label { font-size:10px; color:#93c5fd; text-transform:uppercase; letter-spacing:.05em; margin-bottom:2px }
   .chip-val { font-size:13px; font-weight:800; color:#1e3a8a }
   .loc { margin-top:9px; background:white; border:1px solid #dbeafe; border-radius:7px; padding:8px 10px; font-size:12px; color:#555 }
 
-  /* Section label */
+  /* Visualization block */
+  .viz-block { border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; margin-bottom:14px }
+  .viz-svg-wrap { background:#f8faff; padding:12px; border-bottom:1px solid #e5e7eb; text-align:center }
+  .viz-svg-wrap svg { max-width:100%; height:auto; max-height:200px }
+  .viz-data { display:flex; flex-wrap:wrap; gap:0 }
+  .vcell { flex:1; min-width:80px; padding:9px 13px; border-left:1px solid #f0f0f0; border-bottom:1px solid #f0f0f0 }
+  .vcell:last-child { border-left:none }
+  .vcell-label { font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px }
+  .vcell-val { font-size:13px; font-weight:700; color:#1d4ed8 }
+
   .section { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#9ca3af; border-bottom:1px solid #e5e7eb; padding-bottom:5px; margin-bottom:11px; margin-top:18px }
 
-  /* Items table */
   table.items { width:100%; border-collapse:collapse; border-radius:8px; overflow:hidden; border:1px solid #e5e7eb; margin-bottom:12px }
   table.items thead tr { background:#1d4ed8 }
   table.items th { padding:9px 12px; color:white; font-size:11px; font-weight:700; text-align:right }
@@ -4335,7 +4369,6 @@
   table.items tr:last-child td { border-bottom:none }
   td.bold { font-weight:700 }
 
-  /* Totals */
   .tot-wrap { display:flex; justify-content:flex-end; margin-bottom:20px }
   table.tots { width:220px; border-collapse:collapse; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden }
   table.tots td { padding:9px 13px; font-size:13px; border-bottom:1px solid #f0f0f0 }
@@ -4345,13 +4378,12 @@
   table.tots tr.grand td { background:#1d4ed8; color:white; font-weight:800; font-size:15px; padding:11px 13px }
   table.tots tr.grand td.r { text-align:left }
 
-  /* Footer */
   .footer { text-align:center; font-size:10px; color:#ccc; border-top:1px solid #f0f0f0; padding-top:14px; line-height:1.5 }
 
   @media print {
-    @page { margin: 10mm 12mm; }
+    @page { margin:10mm 12mm }
     body { -webkit-print-color-adjust:exact; print-color-adjust:exact; padding:0 }
-    .bar { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+    .bar,.proj,.viz-block { -webkit-print-color-adjust:exact; print-color-adjust:exact }
   }
 </style>
 </head>
@@ -4377,7 +4409,12 @@ ${p ? `<div class="proj">
   <div class="proj-name">📽 ${escHtml(p.brand)} ${escHtml(p.model)}</div>
   <div class="chips">${chips}</div>
   ${qLocation ? '<div class="loc">📍 '+escHtml(qLocation)+'</div>' : ''}
-</div>` : (qLocation ? '<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 13px;margin-bottom:16px;font-size:12px;color:#555">📍 '+escHtml(qLocation)+'</div>' : '')}
+</div>` : (qLocation ? '<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 13px;margin-bottom:14px;font-size:12px;color:#555">📍 '+escHtml(qLocation)+'</div>' : '')}
+
+${svgHtml || vizCells ? `<div class="viz-block">
+  ${svgHtml ? '<div class="viz-svg-wrap">'+svgHtml+'</div>' : ''}
+  ${vizCells ? '<div class="viz-data">'+vizCells+'</div>' : ''}
+</div>` : ''}
 
 <div class="section">פריטים</div>
 <table class="items">
