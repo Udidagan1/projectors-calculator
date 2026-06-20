@@ -1204,6 +1204,9 @@
       }
       .qp-share-btn:hover { background: #f0fdf4; }
       /* Print handled via new window — no media query needed here */
+
+
+
     </style>
   </head>
   <body>
@@ -1469,7 +1472,7 @@
               height="124"
               rx="1"
               fill="#dbeafe"
-              stroke="#93c5fd"
+              stroke="#64748b"
               stroke-width="0.5"
             />
             <text
@@ -1523,7 +1526,7 @@
               text-anchor="middle"
               font-size="7.5"
               font-weight="600"
-              fill="#1d4ed8"
+              fill="#64748b"
               font-family="Calibri,Calibri Regular,sans-serif"
               transform="rotate(-90,283,102)"
               opacity="0"
@@ -1551,7 +1554,7 @@
               y1="38"
               x2="308"
               y2="162"
-              stroke="#2563eb"
+              stroke="#3b82f6"
               stroke-width="1.5"
             />
             <polygon
@@ -1571,7 +1574,7 @@
               width="40"
               height="16"
               rx="8"
-              fill="#2563eb"
+              fill="#1d4ed8"
             />
             <text
               id="svgWidthLabel"
@@ -1597,7 +1600,7 @@
               y1="176"
               x2="52"
               y2="184"
-              stroke="#2563eb"
+              stroke="#3b82f6"
               stroke-width="1.5"
             />
             <line
@@ -1606,7 +1609,7 @@
               y1="176"
               x2="290"
               y2="184"
-              stroke="#2563eb"
+              stroke="#3b82f6"
               stroke-width="1.5"
             />
             <line
@@ -1615,7 +1618,7 @@
               y1="180"
               x2="290"
               y2="180"
-              stroke="#2563eb"
+              stroke="#3b82f6"
               stroke-width="1.5"
             />
             <polygon
@@ -1678,7 +1681,7 @@
                 id="svgDiagText"
                 text-anchor="middle"
                 font-size="12"
-                fill="#1d4ed8"
+                fill="#2563eb"
                 font-family="Calibri,Calibri Regular,sans-serif"
                 font-weight="700"
               >
@@ -1970,6 +1973,9 @@
           <iframe id="quoteIframe" style="width:100%;flex:1;border:none;background:white"></iframe>
         </div>
       </div>
+
+
+      
 
       <!-- Compat stubs -->
       <span id="graphScreenSizeText" style="display: none"></span>
@@ -4608,6 +4614,10 @@ ${svgHtml || vizCells ? `<div class="viz-block">
       function escHtml(s) {
         return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
       }
+
+
+
+
 
       window.addEventListener("DOMContentLoaded", function() { init(); quoteInit(); });
     </script>
