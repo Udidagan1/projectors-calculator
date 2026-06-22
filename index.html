@@ -740,635 +740,51 @@
         animation: fadeInUp 0.4s ease both;
       }
 
-      /* ── Logo Upload ── */
-      .logo-upload-area {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        border: 1.5px dashed var(--border2);
-        border-radius: var(--radius-sm);
-        padding: 9px 14px;
-        cursor: pointer;
-        background: var(--surface2);
-        transition: border-color 0.15s;
-        min-height: 44px;
-      }
-      .logo-upload-area:hover { border-color: var(--accent); }
-      .logo-upload-area #logoUploadHint {
-        font-size: 12px;
-        color: var(--gray2);
-      }
-      .logo-remove-btn {
-        font-size: 11px;
-        color: var(--red);
-        background: rgba(220,38,38,0.08);
-        border: none;
-        border-radius: 999px;
-        padding: 3px 9px;
-        cursor: pointer;
-        margin-right: auto;
-      }
-
       /* ── Quote Generator ── */
-      .quote-section {
-        margin: 0 12px 10px;
-        display: none;
-        animation: fadeInUp 0.4s ease both;
-      }
-      .quote-section.visible {
-        display: block;
-      }
-      .quote-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 16px;
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: var(--radius) var(--radius) 0 0;
-        border-bottom: 1px solid var(--border);
-      }
-      .quote-header-title {
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--gray1);
-      }
-      .quote-badge {
-        font-size: 9px;
-        font-weight: 800;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--accent);
-        background: rgba(37, 99, 235, 0.1);
-        border: 1px solid rgba(37, 99, 235, 0.2);
-        padding: 3px 9px;
-        border-radius: 999px;
-      }
-      .quote-body {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-top: none;
-        border-radius: 0 0 var(--radius) var(--radius);
-        padding: 14px 16px;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .quote-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      .quote-field {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .quote-field.full {
-        grid-column: 1 / -1;
-      }
-      .quote-field label {
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--gray2);
-      }
-      .quote-field input,
-      .quote-field select,
-      .quote-field textarea {
-        border: 1px solid var(--border2);
-        background: var(--surface2);
-        border-radius: var(--radius-sm);
-        padding: 7px 10px;
-        font-family: var(--font);
-        font-size: 13px;
-        font-weight: 500;
-        color: var(--black);
-        outline: none;
-        width: 100%;
-        transition: border-color 0.15s;
-      }
-      .quote-field input:focus,
-      .quote-field select:focus,
-      .quote-field textarea:focus {
-        border-color: var(--accent);
-      }
-      .quote-field textarea {
-        resize: none;
-        height: 60px;
-        font-size: 12px;
-      }
-      .quote-items-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-      .quote-items-label {
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--gray2);
-      }
-      .add-item-btn {
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--accent);
-        background: rgba(37, 99, 235, 0.08);
-        border: 1px solid rgba(37, 99, 235, 0.2);
-        border-radius: 999px;
-        padding: 3px 10px;
-        cursor: pointer;
-        transition: background 0.15s;
-      }
-      .add-item-btn:hover {
-        background: rgba(37, 99, 235, 0.15);
-      }
-      .quote-items-list {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .quote-item-row {
-        display: grid;
-        grid-template-columns: 1fr 52px 64px 28px;
-        gap: 5px;
-        align-items: center;
-      }
-      .quote-item-row input {
-        border: 1px solid var(--border2);
-        background: var(--surface2);
-        border-radius: var(--radius-sm);
-        padding: 6px 8px;
-        font-family: var(--font);
-        font-size: 12px;
-        color: var(--black);
-        outline: none;
-        width: 100%;
-        transition: border-color 0.15s;
-      }
-      .quote-item-row input:focus {
-        border-color: var(--accent);
-      }
-      .quote-item-row input[type="number"] {
-        text-align: center;
-      }
-      .remove-item-btn {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        background: rgba(220, 38, 38, 0.08);
-        border: none;
-        color: var(--red);
-        font-size: 14px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
-        transition: background 0.15s;
-      }
-      .remove-item-btn:hover {
-        background: rgba(220, 38, 38, 0.18);
-      }
-      .quote-summary {
-        background: rgba(37, 99, 235, 0.04);
-        border: 1px solid rgba(37, 99, 235, 0.12);
-        border-radius: var(--radius-sm);
-        padding: 10px 14px;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-      }
-      .quote-sum-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: 12px;
-        color: var(--gray1);
-      }
-      .quote-sum-row.total {
-        font-size: 15px;
-        font-weight: 800;
-        color: var(--accent);
-        border-top: 1px solid rgba(37, 99, 235, 0.15);
-        padding-top: 6px;
-        margin-top: 2px;
-      }
-      .quote-sum-row.vat {
-        color: var(--gray2);
-        font-size: 11px;
-      }
-      .quote-actions {
-        display: flex;
-        gap: 8px;
-      }
-      .quote-btn-primary {
-        flex: 1;
-        padding: 10px;
-        background: linear-gradient(135deg, #2563eb, #1d4ed8);
-        border: none;
-        border-radius: var(--radius-sm);
-        color: white;
-        font-family: var(--font);
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        transition: all 0.2s;
-        box-shadow: 0 3px 12px var(--accent-glow);
-      }
-      .quote-btn-primary:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 18px var(--accent-glow);
-      }
-      .quote-btn-secondary {
-        padding: 10px 14px;
-        background: var(--surface);
-        border: 1px solid var(--border2);
-        border-radius: var(--radius-sm);
-        color: var(--gray1);
-        font-family: var(--font);
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.15s;
-      }
-      .quote-btn-secondary:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-      /* ── Quote Preview Modal ── */
-      .quote-preview-modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.55);
-        z-index: 1000;
-        align-items: center;
-        justify-content: center;
-        padding: 12px;
-      }
-      .quote-preview-modal.open { display: flex; }
-      .quote-preview-box {
-        background: white;
-        border-radius: 14px;
-        width: 100%;
-        max-width: 620px;
-        height: 90vh;
-        box-shadow: 0 24px 64px rgba(0,0,0,0.3);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-      }
-      .qp-modal-toolbar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 14px;
-        border-bottom: 1px solid #e5e7eb;
-        background: #f9fafb;
-        border-radius: 14px 14px 0 0;
-        flex-shrink: 0;
-        gap: 8px;
-      }
-      .qp-modal-title {
-        font-size: 13px;
-        font-weight: 700;
-        color: #555;
-      }
-      .qp-modal-actions {
-        display: flex;
-        gap: 6px;
-        align-items: center;
-      }
-
-      /* Header */
-      .qp-print-btn {
-        padding: 8px 14px; background: linear-gradient(135deg,#2563eb,#1d4ed8);
-        border: none; border-radius: 8px; color: white;
-        font-size: 12px; font-weight: 700; cursor: pointer; font-family: inherit;
-      }
-      .qp-print-btn:hover { background: #1e3a8a; }
-      .qp-share-btn {
-        padding: 8px 14px; background: white; border: 1px solid #6ee7b7;
-        border-radius: 8px; color: #059669; font-size: 12px; font-weight: 600;
-        cursor: pointer; font-family: inherit;
-      }
-      .qp-share-btn:hover { background: #f0fdf4; }
-      .qp-copy-btn {
-        padding: 8px 10px; background: white; border: 1px solid #d1d5db;
-        border-radius: 8px; color: #666; font-size: 12px; cursor: pointer; font-family: inherit;
-      }
-      .qp-close { background:none; border:none; font-size:20px; color:#bbb; cursor:pointer; padding:0 2px; }
-      .qp-close:hover { color: #555; }
-      .qp-body {
-        padding: 20px 22px 8px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .qp-meta {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        font-size: 11px;
-        color: #444;
-      }
-      .qp-meta span { display: block; }
-      .qp-meta strong { color: #111; font-size: 12px; }
-      .qp-projector-block {
-        background: #f0f4ff;
-        border: 1px solid #c7d7f8;
-        border-radius: 10px;
-        padding: 10px 14px;
-        font-size: 11px;
-        color: #444;
-      }
-      .qp-projector-block strong {
-        display: block;
-        font-size: 14px;
-        font-weight: 800;
-        color: #1d4ed8;
-        margin-bottom: 4px;
-      }
-      .qp-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 11px;
-      }
-      .qp-table th {
-        background: #f3f4f6;
-        padding: 9px 11px;
-        text-align: right;
-        font-weight: 700;
-        color: #555;
-        font-size: 10px;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-      }
-      .qp-table td {
-        padding: 10px 11px;
-        border-bottom: 1px solid #f0f0f0;
-        color: #333;
-        vertical-align: middle;
-        line-height: 1.4;
-      }
-      .qp-table tr:last-child td { border-bottom: none; }
-      .qp-table td.num { text-align: center; }
-      .qp-table td.price { text-align: left; font-family: monospace; }
-      .qp-totals {
-        border-top: 1px solid #e5e7eb;
-        padding-top: 12px;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-      .qp-tot-row {
-        display: flex;
-        justify-content: space-between;
-        font-size: 13px;
-        color: #555;
-        padding: 2px 0;
-      }
-      .qp-tot-row.grand {
-        font-size: 16px;
-        font-weight: 800;
-        color: #1d4ed8;
-        border-top: 2px solid #c7d7f8;
-        padding-top: 10px;
-        margin-top: 4px;
-      }
-      .qp-notes {
-        background: #fffbeb;
-        border: 1px solid #fde68a;
-        border-radius: 8px;
-        padding: 12px 14px;
-        font-size: 12px;
-        color: #555;
-        line-height: 1.6;
-      }
-      .qp-notes strong { display: block; margin-bottom: 5px; color: #92400e; font-size: 12px; }
-      .qp-footer-actions {
-        padding: 12px 18px 16px;
-        border-top: 1px solid #e5e7eb;
-        display: flex;
-        gap: 8px;
-        position: sticky;
-        bottom: 0;
-        background: white;
-      }
-      .qp-print-btn {
-        flex: 1;
-        padding: 10px;
-        background: linear-gradient(135deg, #2563eb, #1d4ed8);
-        border: none;
-        border-radius: 10px;
-        color: white;
-        font-size: 13px;
-        font-weight: 700;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-      }
-      .qp-copy-btn {
-        padding: 10px 14px;
-        background: white;
-        border: 1px solid #d1d5db;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        color: #444;
-        font-family: inherit;
-      }
-      .qp-share-btn {
-        padding: 10px 14px;
-        background: white;
-        border: 1px solid #d1d5db;
-        border-radius: 10px;
-        font-size: 13px;
-        font-weight: 600;
-        cursor: pointer;
-        color: #059669;
-        border-color: #6ee7b7;
-        font-family: inherit;
-      }
-      .qp-share-btn:hover { background: #f0fdf4; }
+      .quote-section { margin:0 12px 10px; display:none; animation:fadeInUp 0.4s ease both }
+      .quote-section.visible { display:block }
+      .quote-header { display:flex; align-items:center; justify-content:space-between; padding:10px 16px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius) var(--radius) 0 0; border-bottom:1px solid var(--border) }
+      .quote-header-title { font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--gray1) }
+      .quote-badge { font-size:9px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--accent); background:rgba(37,99,235,.1); border:1px solid rgba(37,99,235,.2); padding:3px 9px; border-radius:999px }
+      .quote-body { background:var(--surface); border:1px solid var(--border); border-top:none; border-radius:0 0 var(--radius) var(--radius); padding:14px 16px; display:flex; flex-direction:column; gap:10px }
+      .logo-upload-area { display:flex; align-items:center; gap:10px; border:1.5px dashed var(--border2); border-radius:var(--radius-sm); padding:9px 14px; cursor:pointer; background:var(--surface2); min-height:44px }
+      .logo-upload-area #logoUploadHint { font-size:12px; color:var(--gray2) }
+      .logo-remove-btn { font-size:11px; color:var(--red); background:rgba(220,38,38,.08); border:none; border-radius:999px; padding:3px 9px; cursor:pointer; margin-right:auto }
+      .quote-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px }
+      .quote-field { display:flex; flex-direction:column; gap:4px }
+      .quote-field.full { grid-column:1/-1 }
+      .quote-field label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gray2) }
+      .quote-field input,.quote-field select,.quote-field textarea { border:1px solid var(--border2); background:var(--surface2); border-radius:var(--radius-sm); padding:7px 10px; font-family:var(--font); font-size:13px; font-weight:500; color:var(--black); outline:none; width:100%; transition:border-color .15s }
+      .quote-field input:focus,.quote-field select:focus,.quote-field textarea:focus { border-color:var(--accent) }
+      .quote-field textarea { resize:none; height:60px; font-size:12px }
+      .quote-items-header { display:flex; align-items:center; justify-content:space-between }
+      .quote-items-label { font-size:9px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--gray2) }
+      .add-item-btn { font-size:11px; font-weight:700; color:var(--accent); background:rgba(37,99,235,.08); border:1px solid rgba(37,99,235,.2); border-radius:999px; padding:3px 10px; cursor:pointer }
+      .quote-items-list { display:flex; flex-direction:column; gap:6px }
+      .quote-item-row { display:grid; grid-template-columns:1fr 52px 64px 28px; gap:5px; align-items:center }
+      .quote-item-row input { border:1px solid var(--border2); background:var(--surface2); border-radius:var(--radius-sm); padding:6px 8px; font-family:var(--font); font-size:12px; color:var(--black); outline:none; width:100% }
+      .quote-item-row input[type="number"] { text-align:center }
+      .remove-item-btn { width:24px; height:24px; border-radius:50%; background:rgba(220,38,38,.08); border:none; color:var(--red); font-size:14px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+      .quote-summary { background:rgba(37,99,235,.04); border:1px solid rgba(37,99,235,.12); border-radius:var(--radius-sm); padding:10px 14px; display:flex; flex-direction:column; gap:5px }
+      .quote-sum-row { display:flex; justify-content:space-between; align-items:center; font-size:12px; color:var(--gray1) }
+      .quote-sum-row.total { font-size:15px; font-weight:800; color:var(--accent); border-top:1px solid rgba(37,99,235,.15); padding-top:6px; margin-top:2px }
+      .quote-sum-row.vat { color:var(--gray2); font-size:11px }
+      .quote-actions { display:flex; gap:8px }
+      .quote-btn-primary { flex:1; padding:10px; background:linear-gradient(135deg,#2563eb,#1d4ed8); border:none; border-radius:var(--radius-sm); color:white; font-family:var(--font); font-size:13px; font-weight:700; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; transition:all .2s; box-shadow:0 3px 12px var(--accent-glow) }
+      .quote-btn-secondary { padding:10px 14px; background:var(--surface); border:1px solid var(--border2); border-radius:var(--radius-sm); color:var(--gray1); font-family:var(--font); font-size:13px; font-weight:600; cursor:pointer }
+      /* Quote Preview Modal */
+      .quote-preview-modal { display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:1000; align-items:center; justify-content:center; padding:12px }
+      .quote-preview-modal.open { display:flex }
+      .quote-preview-box { background:white; border-radius:14px; width:100%; max-width:620px; height:90vh; box-shadow:0 24px 64px rgba(0,0,0,.3); display:flex; flex-direction:column; overflow:hidden }
+      .qp-modal-toolbar { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid #e5e7eb; background:#f9fafb; border-radius:14px 14px 0 0; flex-shrink:0; gap:8px }
+      .qp-modal-title { font-size:13px; font-weight:700; color:#555 }
+      .qp-modal-actions { display:flex; gap:6px; align-items:center }
+      .qp-print-btn { padding:8px 14px; background:linear-gradient(135deg,#2563eb,#1d4ed8); border:none; border-radius:8px; color:white; font-size:12px; font-weight:700; cursor:pointer; font-family:inherit }
+      .qp-share-btn { padding:8px 14px; background:white; border:1px solid #6ee7b7; border-radius:8px; color:#059669; font-size:12px; font-weight:600; cursor:pointer; font-family:inherit }
+      .qp-copy-btn { padding:8px 10px; background:white; border:1px solid #d1d5db; border-radius:8px; color:#666; font-size:12px; cursor:pointer; font-family:inherit }
+      .qp-close { background:none; border:none; font-size:20px; color:#bbb; cursor:pointer; padding:0 2px }
+      /* Print */
       /* Print handled via new window — no media query needed here */
-
-
-
-
-
-      /* ══ Environment Mapping ══ */
-      .env-block {
-        margin: 10px 0 0;
-        border-top: 1px solid var(--border);
-        padding-top: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .env-label {
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        color: var(--gray2);
-      }
-      .env-options {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 6px;
-      }
-      .env-btn {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        padding: 8px 4px 6px;
-        border-radius: var(--radius-sm);
-        border: 1.5px solid var(--border2);
-        background: var(--surface2);
-        cursor: pointer;
-        transition: all .13s;
-        font-family: var(--font);
-      }
-      .env-btn:hover { border-color: var(--accent); }
-      .env-btn.active { border-color: var(--accent); background: rgba(37,99,235,.07); }
-      .env-btn-icon { font-size: 20px; line-height: 1; }
-      .env-btn-name { font-size: 9px; font-weight: 700; color: var(--gray1); text-align: center; line-height: 1.2; }
-      .env-btn-lux { font-size: 8px; color: var(--gray2); }
-
-      /* Brightness meter */
-      .brightness-meter {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-      }
-      .bm-bar-wrap {
-        height: 8px;
-        background: var(--border);
-        border-radius: 999px;
-        overflow: hidden;
-      }
-      .bm-bar {
-        height: 100%;
-        border-radius: 999px;
-        transition: width .4s, background .4s;
-      }
-      .bm-labels {
-        display: flex;
-        justify-content: space-between;
-        font-size: 10px;
-      }
-      .bm-label-left { color: var(--gray2); }
-      .bm-label-right { font-weight: 700; }
-
-      /* Warning banner */
-      .env-warning {
-        display: none;
-        padding: 8px 12px;
-        border-radius: var(--radius-sm);
-        font-size: 11px;
-        font-weight: 600;
-        line-height: 1.4;
-        align-items: flex-start;
-        gap: 7px;
-      }
-      .env-warning.visible { display: flex; }
-      .env-warning.warn {
-        background: #fffbeb; border: 1px solid #fde68a; color: #92400e;
-      }
-      .env-warning.ok {
-        background: #f0fdf4; border: 1px solid #bbf7d0; color: #065f46;
-      }
-      .env-warning.bad {
-        background: #fef2f2; border: 1px solid #fecaca; color: #991b1b;
-      }
-
-      /* Viewing angle block */
-      .view-block {
-        margin: 10px 0 0;
-        border-top: 1px solid var(--border);
-        padding-top: 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-      }
-      .view-inputs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      .view-input-row {
-        display: flex;
-        flex-direction: column;
-        gap: 3px;
-      }
-      .view-input-row label {
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: .08em;
-        text-transform: uppercase;
-        color: var(--gray2);
-      }
-      .view-input-row input {
-        border: 1px solid var(--border2);
-        background: var(--surface2);
-        border-radius: var(--radius-sm);
-        padding: 6px 9px;
-        font-family: var(--font);
-        font-size: 13px;
-        color: var(--black);
-        outline: none;
-        transition: border-color .15s;
-        width: 100%;
-      }
-      .view-input-row input:focus { border-color: var(--accent); }
-
-      /* Angle results */
-      .view-results {
-        display: none;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 6px;
-      }
-      .view-results.visible { display: grid; }
-      .view-card {
-        background: var(--surface2);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-sm);
-        padding: 8px 10px;
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-        text-align: center;
-      }
-      .view-card-title { font-size: 9px; color: var(--gray2); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
-      .view-card-val { font-size: 18px; font-weight: 900; color: var(--accent); letter-spacing: -.5px; }
-      .view-card-unit { font-size: 9px; color: var(--gray2); }
-      .view-card.ok  .view-card-val { color: #059669; }
-      .view-card.warn .view-card-val { color: #d97706; }
-      .view-card.bad  .view-card-val { color: #dc2626; }
-      .view-avixa {
-        font-size: 10px;
-        color: var(--gray2);
-        line-height: 1.5;
-        padding: 8px 10px;
-        background: var(--surface2);
-        border: 1px solid var(--border);
-        border-radius: var(--radius-sm);
-      }
-      .view-avixa strong { color: var(--gray1); }
     </style>
   </head>
   <body>
@@ -1634,7 +1050,7 @@
               height="124"
               rx="1"
               fill="#dbeafe"
-              stroke="#64748b"
+              stroke="#93c5fd"
               stroke-width="0.5"
             />
             <text
@@ -1688,7 +1104,7 @@
               text-anchor="middle"
               font-size="7.5"
               font-weight="600"
-              fill="#64748b"
+              fill="#1d4ed8"
               font-family="Calibri,Calibri Regular,sans-serif"
               transform="rotate(-90,283,102)"
               opacity="0"
@@ -1716,7 +1132,7 @@
               y1="38"
               x2="308"
               y2="162"
-              stroke="#3b82f6"
+              stroke="#2563eb"
               stroke-width="1.5"
             />
             <polygon
@@ -1736,7 +1152,7 @@
               width="40"
               height="16"
               rx="8"
-              fill="#1d4ed8"
+              fill="#2563eb"
             />
             <text
               id="svgWidthLabel"
@@ -1762,7 +1178,7 @@
               y1="176"
               x2="52"
               y2="184"
-              stroke="#3b82f6"
+              stroke="#2563eb"
               stroke-width="1.5"
             />
             <line
@@ -1771,7 +1187,7 @@
               y1="176"
               x2="290"
               y2="184"
-              stroke="#3b82f6"
+              stroke="#2563eb"
               stroke-width="1.5"
             />
             <line
@@ -1780,7 +1196,7 @@
               y1="180"
               x2="290"
               y2="180"
-              stroke="#3b82f6"
+              stroke="#2563eb"
               stroke-width="1.5"
             />
             <polygon
@@ -1843,7 +1259,7 @@
                 id="svgDiagText"
                 text-anchor="middle"
                 font-size="12"
-                fill="#2563eb"
+                fill="#1d4ed8"
                 font-family="Calibri,Calibri Regular,sans-serif"
                 font-weight="700"
               >
@@ -1865,101 +1281,6 @@
             בחר מקרן וגודל מסך
           </text>
         </svg>
-        <!-- ══ Environment Mapping ══ -->
-        <div class="env-block" id="envBlock">
-          <div class="env-label">🌤 תנאי תאורת סביבה</div>
-          <div class="env-options">
-            <button class="env-btn" data-env="dark" onclick="envSelect(this)">
-              <span class="env-btn-icon">🌑</span>
-              <span class="env-btn-name">חדר חשוך</span>
-              <span class="env-btn-lux">< 10 lux</span>
-            </button>
-            <button class="env-btn active" data-env="office" onclick="envSelect(this)">
-              <span class="env-btn-icon">💼</span>
-              <span class="env-btn-name">חדר ישיבות</span>
-              <span class="env-btn-lux">200–500 lux</span>
-            </button>
-            <button class="env-btn" data-env="natural" onclick="envSelect(this)">
-              <span class="env-btn-icon">☀️</span>
-              <span class="env-btn-name">אור יום מלא</span>
-              <span class="env-btn-lux">500–1000 lux</span>
-            </button>
-            <button class="env-btn" data-env="event" onclick="envSelect(this)">
-              <span class="env-btn-icon">🎪</span>
-              <span class="env-btn-name">אולם אירועים</span>
-              <span class="env-btn-lux">50–200 lux</span>
-            </button>
-            <button class="env-btn" data-env="outdoor" onclick="envSelect(this)">
-              <span class="env-btn-icon">🌞</span>
-              <span class="env-btn-name">חוץ / שמש</span>
-              <span class="env-btn-lux">> 1000 lux</span>
-            </button>
-            <button class="env-btn" data-env="classroom" onclick="envSelect(this)">
-              <span class="env-btn-icon">🏫</span>
-              <span class="env-btn-name">כיתה / הדרכה</span>
-              <span class="env-btn-lux">300–600 lux</span>
-            </button>
-          </div>
-
-          <!-- Brightness adequacy bar -->
-          <div class="brightness-meter" id="brightnessMeter" style="display:none">
-            <div class="bm-labels">
-              <span class="bm-label-left">עוצמת הקרנה אפקטיבית</span>
-              <span class="bm-label-right" id="bmScore"></span>
-            </div>
-            <div class="bm-bar-wrap">
-              <div class="bm-bar" id="bmBar" style="width:0%"></div>
-            </div>
-            <div class="bm-labels">
-              <span class="bm-label-left" id="bmAnsiText"></span>
-              <span class="bm-label-right" id="bmNeedText"></span>
-            </div>
-          </div>
-
-          <div class="env-warning" id="envWarning"></div>
-        </div>
-
-        <!-- ══ Viewing Angles (AVIXA) ══ -->
-        <div class="view-block" id="viewBlock">
-          <div class="env-label">📐 זוויות צפייה — תקן AVIXA</div>
-          <div class="view-inputs">
-            <div class="view-input-row">
-              <label>גובה תקרה (ס"מ)</label>
-              <input type="number" id="roomHeightInput" placeholder="280" value="280" oninput="viewCalc()"/>
-            </div>
-            <div class="view-input-row">
-              <label>גובה תחתית מסך (ס"מ)</label>
-              <input type="number" id="screenBottomInput" placeholder="120" value="120" oninput="viewCalc()"/>
-            </div>
-            <div class="view-input-row">
-              <label>מרחק שורה ראשונה (ס"מ)</label>
-              <input type="number" id="firstRowInput" placeholder="150" value="150" oninput="viewCalc()"/>
-            </div>
-            <div class="view-input-row">
-              <label>מרחק שורה אחרונה (ס"מ)</label>
-              <input type="number" id="lastRowInput" placeholder="500" value="500" oninput="viewCalc()"/>
-            </div>
-          </div>
-          <div class="view-results" id="viewResults">
-            <div class="view-card" id="vcElevation">
-              <div class="view-card-title">זווית הגבהה</div>
-              <div class="view-card-val" id="vcElevVal">—</div>
-              <div class="view-card-unit">מעלות מעיניים</div>
-            </div>
-            <div class="view-card" id="vcFront">
-              <div class="view-card-title">שורה ראשונה</div>
-              <div class="view-card-val" id="vcFrontVal">—</div>
-              <div class="view-card-unit">זווית אנכית</div>
-            </div>
-            <div class="view-card" id="vcBack">
-              <div class="view-card-title">שורה אחרונה</div>
-              <div class="view-card-val" id="vcBackVal">—</div>
-              <div class="view-card-unit">זווית אנכית</div>
-            </div>
-          </div>
-          <div class="view-avixa" id="viewAvixa" style="display:none"></div>
-        </div>
-
       </div>
 
       <!-- Compare toggle -->
@@ -2121,34 +1442,20 @@
           <span class="quote-badge">גנרטור תבניות</span>
         </div>
         <div class="quote-body">
-
-          <!-- Logo upload -->
           <div class="quote-field full">
             <label>לוגו חברה (אופציונלי)</label>
-            <div class="logo-upload-area" id="logoUploadArea" onclick="document.getElementById('qLogoInput').click()">
+            <div class="logo-upload-area" onclick="document.getElementById('qLogoInput').click()">
               <img id="logoPreviewImg" src="" alt="" style="display:none;max-height:48px;max-width:160px;object-fit:contain" />
               <span id="logoUploadHint">📎 לחץ להוספת לוגו</span>
               <button id="logoRemoveBtn" style="display:none" onclick="event.stopPropagation();quoteClearLogo()" class="logo-remove-btn">✕ הסר</button>
             </div>
             <input type="file" id="qLogoInput" accept="image/*" style="display:none" onchange="quoteLoadLogo(this)" />
           </div>
-
-          <!-- Client info -->
           <div class="quote-grid">
-            <div class="quote-field">
-              <label>שם לקוח</label>
-              <input type="text" id="qClientName" placeholder="שם הלקוח / חברה" />
-            </div>
-            <div class="quote-field">
-              <label>מספר הצעה</label>
-              <input type="text" id="qNumber" placeholder="2025-001" />
-            </div>
-            <div class="quote-field">
-              <label>תאריך</label>
-              <input type="date" id="qDate" />
-            </div>
-            <div class="quote-field">
-              <label>תוקף הצעה</label>
+            <div class="quote-field"><label>שם לקוח</label><input type="text" id="qClientName" placeholder="שם הלקוח / חברה" /></div>
+            <div class="quote-field"><label>מספר הצעה</label><input type="text" id="qNumber" placeholder="2025-001" /></div>
+            <div class="quote-field"><label>תאריך</label><input type="date" id="qDate" /></div>
+            <div class="quote-field"><label>תוקף הצעה</label>
               <select id="qValidity">
                 <option value="7">7 ימים</option>
                 <option value="14" selected>14 ימים</option>
@@ -2156,13 +1463,8 @@
                 <option value="60">60 ימים</option>
               </select>
             </div>
-            <div class="quote-field full">
-              <label>מיקום התקנה / הערות</label>
-              <textarea id="qLocation" placeholder="כגון: אולם ישיבות קומה 3, מרחק 4 מטר מהמסך..."></textarea>
-            </div>
+            <div class="quote-field full"><label>מיקום התקנה / הערות</label><textarea id="qLocation" placeholder="כגון: אולם ישיבות קומה 3..."></textarea></div>
           </div>
-
-          <!-- Line items -->
           <div>
             <div class="quote-items-header">
               <span class="quote-items-label">פריטים</span>
@@ -2170,15 +1472,9 @@
             </div>
             <div class="quote-items-list" id="quoteItemsList"></div>
           </div>
-
-          <!-- VAT & discount -->
           <div class="quote-grid">
-            <div class="quote-field">
-              <label>הנחה (%)</label>
-              <input type="number" id="qDiscount" placeholder="0" min="0" max="100" oninput="quoteRecalc()" />
-            </div>
-            <div class="quote-field">
-              <label>מע"מ</label>
+            <div class="quote-field"><label>הנחה (%)</label><input type="number" id="qDiscount" placeholder="0" min="0" max="100" oninput="quoteRecalc()" /></div>
+            <div class="quote-field"><label>מע"מ</label>
               <select id="qVat" onchange="quoteRecalc()">
                 <option value="0">ללא מע"מ</option>
                 <option value="17" selected>17%</option>
@@ -2186,31 +1482,15 @@
               </select>
             </div>
           </div>
-
-          <!-- Summary -->
           <div class="quote-summary">
-            <div class="quote-sum-row">
-              <span>סכום ביניים</span>
-              <span id="qSubtotal">₪0</span>
-            </div>
-            <div class="quote-sum-row">
-              <span id="qDiscountLabel">הנחה</span>
-              <span id="qDiscountAmt">—</span>
-            </div>
-            <div class="quote-sum-row vat">
-              <span id="qVatLabel">מע"מ 17%</span>
-              <span id="qVatAmt">—</span>
-            </div>
-            <div class="quote-sum-row total">
-              <span>סה"כ לתשלום</span>
-              <span id="qTotal">₪0</span>
-            </div>
+            <div class="quote-sum-row"><span>סכום ביניים</span><span id="qSubtotal">₪0</span></div>
+            <div class="quote-sum-row"><span id="qDiscountLabel">הנחה</span><span id="qDiscountAmt">—</span></div>
+            <div class="quote-sum-row vat"><span id="qVatLabel">מע"מ 17%</span><span id="qVatAmt">—</span></div>
+            <div class="quote-sum-row total"><span>סה"כ לתשלום</span><span id="qTotal">₪0</span></div>
           </div>
-
-          <!-- Actions -->
           <div class="quote-actions">
             <button class="quote-btn-primary" onclick="quotePreview()">👁 תצוגה מקדימה / PDF</button>
-            <button class="quote-btn-secondary" onclick="quoteExportTxt()">⬇ TXT</button>
+            <button class="quote-btn-secondary" onclick="quoteShare()">📤 שתף</button>
           </div>
         </div>
       </div>
@@ -2230,9 +1510,6 @@
           <iframe id="quoteIframe" style="width:100%;flex:1;border:none;background:white"></iframe>
         </div>
       </div>
-
-
-      
 
       <!-- Compat stubs -->
       <span id="graphScreenSizeText" style="display: none"></span>
@@ -3727,8 +3004,7 @@
         if (!brand || !model || isNaN(screenWidth) || screenWidth <= 0) {
           resultArea.style.display = "none";
           document.getElementById("exportBtn").style.display = "none";
-          document.getElementById('quoteSection').classList.remove('visible');
-          return;
+          document.getElementById('quoteSection').classList.remove('visible'); return;
         }
 
         const projector = database.find(
@@ -3736,8 +3012,7 @@
         );
         if (!projector) {
           resultArea.style.display = "none";
-          document.getElementById('quoteSection').classList.remove('visible');
-          return;
+          document.getElementById('quoteSection').classList.remove('visible'); return;
         }
 
         // Resolve throw ratio — from lens if projector uses interchangeable lenses
@@ -3752,7 +3027,6 @@
             document.getElementById("throwRatioText").textContent = "—";
             document.getElementById("throwDistanceText").textContent = "—";
             updateMatchingProjectors();
-          document.getElementById('quoteSection').classList.remove('visible');
             return;
           }
           const lens = projector.lenses[parseInt(lensIdx)];
@@ -3994,16 +3268,7 @@
 
         resultArea.style.display = "block";
         document.getElementById("exportBtn").style.display = "flex";
-        envAutoCalc();
-        // Show quote generator for this projector
-        if (projector) {
-          const prevId = window._quoteLastProjectorId;
-          const currId = projector.brand + '|' + projector.model;
-          if (prevId !== currId) {
-            window._quoteLastProjectorId = currId;
-            quoteShowFor(projector);
-          }
-        }
+        if (projector) { const cId = projector.brand+"|"+projector.model; if (window._quoteLastProjectorId !== cId) quoteShowFor(projector); }
 
         updateProjectorImage(projector);
         if (
@@ -4412,39 +3677,35 @@
         a.click();
       }
 
-
-      // ═══════════════════════════════════════════
-      //  DYNAMIC QUOTE GENERATOR
-      // ═══════════════════════════════════════════
-
+      
+      // ── Quote Generator ──
       let quoteItems = [];
       let quoteProjectorData = null;
 
       function quoteInit() {
-        // Set today's date
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('qDate').value = today;
-        // Auto-generate quote number
-        const num = 'Q-' + Date.now().toString().slice(-6);
-        document.getElementById('qNumber').value = num;
+        document.getElementById('qNumber').value = 'Q-' + Date.now().toString().slice(-6);
       }
 
       function quoteShowFor(projector) {
         quoteProjectorData = projector;
         const section = document.getElementById('quoteSection');
         section.classList.add('visible');
-        // Clear existing items and add the projector as first item
-        quoteItems = [];
-        // Add projector as line item
-        const projLabel = projector.brand + ' ' + projector.model +
-          (projector.lumens ? ' – ' + projector.lumens + ' לומן' : '');
-        quoteItems.push({ desc: projLabel, qty: 1, price: 0 });
-        // Add common accessories
-        quoteItems.push({ desc: 'התקנה ותשתית', qty: 1, price: 0 });
-        quoteItems.push({ desc: 'כבלים ואביזרים', qty: 1, price: 0 });
-        quoteRenderItems();
-        quoteRecalc();
-        // (no auto-scroll — user scrolls manually)
+        const prevId = window._quoteLastProjectorId;
+        const currId = projector ? projector.brand + '|' + projector.model : '';
+        if (prevId !== currId) {
+          window._quoteLastProjectorId = currId;
+          quoteItems = [];
+          if (projector) {
+            const label = projector.brand + ' ' + projector.model + (projector.lumens ? ' – ' + projector.lumens + ' לומן' : '');
+            quoteItems.push({ desc: label, qty: 1, price: 0 });
+            quoteItems.push({ desc: 'התקנה ותשתית', qty: 1, price: 0 });
+            quoteItems.push({ desc: 'כבלים ואביזרים', qty: 1, price: 0 });
+          }
+          quoteRenderItems();
+          quoteRecalc();
+        }
       }
 
       function quoteRenderItems() {
@@ -4454,12 +3715,9 @@
           const row = document.createElement('div');
           row.className = 'quote-item-row';
           row.innerHTML =
-            '<input type="text" placeholder="תיאור פריט" value="' + escHtml(item.desc) + '" ' +
-              'oninput="quoteItems[' + i + '].desc=this.value;quoteRecalc()" />' +
-            '<input type="number" placeholder="כמות" min="1" value="' + item.qty + '" ' +
-              'oninput="quoteItems[' + i + '].qty=parseFloat(this.value)||1;quoteRecalc()" />' +
-            '<input type="number" placeholder="₪ מחיר" min="0" value="' + (item.price||'') + '" ' +
-              'oninput="quoteItems[' + i + '].price=parseFloat(this.value)||0;quoteRecalc()" />' +
+            '<input type="text" placeholder="תיאור פריט" value="' + escQ(item.desc) + '" oninput="quoteItems[' + i + '].desc=this.value;quoteRecalc()" />' +
+            '<input type="number" placeholder="כמות" min="1" value="' + item.qty + '" oninput="quoteItems[' + i + '].qty=parseFloat(this.value)||1;quoteRecalc()" />' +
+            '<input type="number" placeholder="₪ מחיר" min="0" value="' + (item.price||'') + '" oninput="quoteItems[' + i + '].price=parseFloat(this.value)||0;quoteRecalc()" />' +
             '<button class="remove-item-btn" onclick="quoteRemoveItem(' + i + ')">×</button>';
           list.appendChild(row);
         });
@@ -4467,43 +3725,31 @@
 
       function quoteAddItem() {
         quoteItems.push({ desc: '', qty: 1, price: 0 });
-        quoteRenderItems();
-        quoteRecalc();
-        // Focus new item desc
+        quoteRenderItems(); quoteRecalc();
         const inputs = document.querySelectorAll('.quote-item-row input[type=text]');
         if (inputs.length) inputs[inputs.length - 1].focus();
       }
 
       function quoteRemoveItem(idx) {
         quoteItems.splice(idx, 1);
-        quoteRenderItems();
-        quoteRecalc();
+        quoteRenderItems(); quoteRecalc();
       }
 
       function quoteRecalc() {
-        const subtotal = quoteItems.reduce((s, it) => s + (it.qty * it.price), 0);
+        const subtotal = quoteItems.reduce((s, it) => s + it.qty * it.price, 0);
         const discPct = parseFloat(document.getElementById('qDiscount').value) || 0;
-        const vatPct = parseFloat(document.getElementById('qVat').value) || 0;
+        const vatPct  = parseFloat(document.getElementById('qVat').value) || 0;
         const discAmt = subtotal * discPct / 100;
         const afterDisc = subtotal - discAmt;
-        const vatAmt = afterDisc * vatPct / 100;
-        const total = afterDisc + vatAmt;
-
-        const fmt = (n) => '₪' + n.toLocaleString('he-IL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-
+        const vatAmt  = afterDisc * vatPct / 100;
+        const total   = afterDisc + vatAmt;
+        const fmt = n => '₪' + n.toLocaleString('he-IL', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
         document.getElementById('qSubtotal').textContent = fmt(subtotal);
-        document.getElementById('qDiscountLabel').textContent = 'הנחה ' + (discPct ? '(' + discPct + '%)' : '');
+        document.getElementById('qDiscountLabel').textContent = 'הנחה' + (discPct ? ' (' + discPct + '%)' : '');
         document.getElementById('qDiscountAmt').textContent = discPct ? '–' + fmt(discAmt) : '—';
         document.getElementById('qVatLabel').textContent = 'מע"מ ' + vatPct + '%';
         document.getElementById('qVatAmt').textContent = vatPct ? fmt(vatAmt) : '—';
         document.getElementById('qTotal').textContent = fmt(total);
-      }
-
-      function quotePreview() {
-        const html = quoteBuildHTML();
-        const iframe = document.getElementById('quoteIframe');
-        iframe.srcdoc = html;
-        document.getElementById('quoteModal').classList.add('open');
       }
 
       function quoteBuildHTML() {
@@ -4519,193 +3765,101 @@
         const afterDisc  = subtotal-discAmt;
         const vatAmt     = afterDisc*vatPct/100;
         const total      = afterDisc+vatAmt;
-        const fmt        = (n) => '&#8362;' + n.toLocaleString('he-IL',{minimumFractionDigits:0});
+        const fmt        = n => '&#8362;' + n.toLocaleString('he-IL',{minimumFractionDigits:0});
         const dateStr    = qDate ? new Date(qDate).toLocaleDateString('he-IL') : '—';
         const expiryDate = qDate ? new Date(new Date(qDate).getTime()+parseInt(qValidity)*86400000).toLocaleDateString('he-IL') : '—';
         const p          = quoteProjectorData;
         const logoHtml   = window._quoteLogo ? '<img src="'+window._quoteLogo+'" style="height:52px;max-width:160px;object-fit:contain">' : '';
-
-        // ── Visualization data ──
-        const g = (id) => { const el = document.getElementById(id); return el ? el.textContent.trim() : ''; };
-        const screenW    = document.getElementById('screenWidth') ? document.getElementById('screenWidth').value : '';
-        const screenDiag = g('screenSizeText');
-        const throwRatio = g('throwRatioText');
-        const throwDist  = g('throwDistanceText');
-        const actualDist = document.getElementById('actualDistance') ? document.getElementById('actualDistance').value : '';
-        const statusTxt  = g('statusText');
-
-        // SVG snapshot — inline with fixed dimensions for print
-        const svgEl = document.getElementById('vizSvg');
-        let svgHtml = '';
-        if (svgEl) {
-          const clone = svgEl.cloneNode(true);
-          clone.setAttribute('width', '100%');
-          clone.setAttribute('height', 'auto');
-          clone.style.cssText = 'display:block;max-width:100%;height:auto';
-          svgHtml = clone.outerHTML;
-        }
-
-        // items rows
         let itemRows = '';
         quoteItems.forEach((item,i) => {
           const line = item.qty*item.price;
-          itemRows += `<tr class="${i%2===1?'alt':''}">
-            <td>${escHtml(item.desc||'—')}</td>
-            <td class="c">${item.qty}</td>
-            <td class="r">${fmt(item.price)}</td>
-            <td class="r bold">${fmt(line)}</td>
-          </tr>`;
+          itemRows += '<tr style="'+(i%2===1?'background:#f9fafb':'')+'">' +
+            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0">'+escH(item.desc||'—')+'</td>' +
+            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:center">'+item.qty+'</td>' +
+            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:left">'+fmt(item.price)+'</td>' +
+            '<td style="padding:9px 12px;border-bottom:1px solid #f0f0f0;text-align:left;font-weight:700">'+fmt(line)+'</td></tr>';
         });
-
-        // spec chips
         let chips = '';
         if (p) {
-          const chip = (label,val) => val ? `<div class="chip"><div class="chip-label">${label}</div><div class="chip-val">${val}</div></div>` : '';
-          chips = chip('לומן', p.lumens ? p.lumens+' lm' : '')
-                + chip('רזולוציה', p.resolution)
-                + chip('יחס תמונה', p.ratio)
-                + chip('יחס הטלה', p.throwRatio)
-                + chip('עדשה', p.lens);
+          const chip = (l,v) => v ? '<div style="background:white;border:1px solid #dbeafe;border-radius:7px;padding:6px 10px;min-width:88px"><div style="font-size:10px;color:#93c5fd;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px">'+l+'</div><div style="font-size:13px;font-weight:800;color:#1e3a8a">'+v+'</div></div>' : '';
+          chips = chip('לומן', p.lumens ? p.lumens+' lm' : '') + chip('רזולוציה', p.resolution) + chip('יחס תמונה', p.ratio) + chip('יחס הטלה', p.throwRatio);
         }
-
-        // viz data chips
-        const vcell = (label,val) => val ? `<div class="vcell"><div class="vcell-label">${label}</div><div class="vcell-val">${val}</div></div>` : '';
-        const vizCells = vcell('רוחב מסך', screenW ? screenW+' ס"מ' : '')
-          + vcell('אלכסון', screenDiag)
-          + vcell('יחס הטלה', throwRatio)
-          + vcell('טווח התקנה', throwDist)
-          + vcell('מרחק עדשה', actualDist ? actualDist+' ס"מ' : '')
-          + vcell('מצב', statusTxt);
-
-        // totals
-        let totRows = `<tr><td>סכום ביניים</td><td class="r">${fmt(subtotal)}</td></tr>`;
-        if (discPct) totRows += `<tr><td>הנחה (${discPct}%)</td><td class="r red">&#8722;${fmt(discAmt)}</td></tr>`;
-        if (vatPct)  totRows += `<tr><td>מע"מ ${vatPct}%</td><td class="r">${fmt(vatAmt)}</td></tr>`;
-        totRows += `<tr class="grand"><td>סה"כ לתשלום</td><td class="r">${fmt(total)}</td></tr>`;
-
-        return `<!DOCTYPE html>
-<html dir="rtl" lang="he">
-<head>
-<meta charset="utf-8">
-<style>
-  * { box-sizing:border-box; margin:0; padding:0 }
-  body { font-family: Arial, sans-serif; font-size:13px; color:#1a1a1a; background:white; direction:rtl; padding:28px 32px }
-
-  .hdr { display:flex; justify-content:space-between; align-items:flex-start; padding-bottom:14px; border-bottom:3px solid #1d4ed8; margin-bottom:5px }
-  .hdr-title { font-size:26px; font-weight:900; color:#1d4ed8; letter-spacing:-1px; line-height:1 }
-  .hdr-sub { font-size:11px; color:#aaa; margin-top:4px }
-  .bar { height:4px; background:linear-gradient(90deg,#1d4ed8,#60a5fa 60%,#e5e7eb); margin-bottom:22px }
-
-  .meta { display:grid; grid-template-columns:1fr 1fr; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden; margin-bottom:18px }
-  .meta-cell { padding:10px 14px; border-bottom:1px solid #f0f0f0 }
-  .meta-cell:nth-child(odd) { border-left:1px solid #f0f0f0 }
-  .meta-cell:nth-last-child(-n+2) { border-bottom:none }
-  .meta-label { font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:.07em; margin-bottom:3px }
-  .meta-val { font-size:14px; font-weight:700; color:#111 }
-
-  .proj { background:linear-gradient(135deg,#eff6ff,#eef2ff); border:1px solid #bfdbfe; border-radius:10px; padding:13px 15px; margin-bottom:14px }
-  .proj-name { font-size:15px; font-weight:900; color:#1d4ed8; margin-bottom:10px }
-  .chips { display:flex; flex-wrap:wrap; gap:7px }
-  .chip { background:white; border:1px solid #dbeafe; border-radius:7px; padding:6px 10px; min-width:88px }
-  .chip-label { font-size:10px; color:#93c5fd; text-transform:uppercase; letter-spacing:.05em; margin-bottom:2px }
-  .chip-val { font-size:13px; font-weight:800; color:#1e3a8a }
-  .loc { margin-top:9px; background:white; border:1px solid #dbeafe; border-radius:7px; padding:8px 10px; font-size:12px; color:#555 }
-
-  /* Visualization block */
-  .viz-block { border:1px solid #e5e7eb; border-radius:10px; overflow:hidden; margin-bottom:14px }
-  .viz-svg-wrap { background:#f8faff; padding:12px; border-bottom:1px solid #e5e7eb; text-align:center }
-  .viz-svg-wrap svg { max-width:100%; height:auto; max-height:200px }
-  .viz-data { display:flex; flex-wrap:wrap; gap:0 }
-  .vcell { flex:1; min-width:80px; padding:9px 13px; border-left:1px solid #f0f0f0; border-bottom:1px solid #f0f0f0 }
-  .vcell:last-child { border-left:none }
-  .vcell-label { font-size:10px; color:#aaa; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px }
-  .vcell-val { font-size:13px; font-weight:700; color:#1d4ed8 }
-
-  .section { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:#9ca3af; border-bottom:1px solid #e5e7eb; padding-bottom:5px; margin-bottom:11px; margin-top:18px }
-
-  table.items { width:100%; border-collapse:collapse; border-radius:8px; overflow:hidden; border:1px solid #e5e7eb; margin-bottom:12px }
-  table.items thead tr { background:#1d4ed8 }
-  table.items th { padding:9px 12px; color:white; font-size:11px; font-weight:700; text-align:right }
-  table.items th.c, table.items td.c { text-align:center }
-  table.items th.r, table.items td.r { text-align:left }
-  table.items td { padding:9px 12px; border-bottom:1px solid #f0f0f0; font-size:13px }
-  table.items tr.alt td { background:#f9fafb }
-  table.items tr:last-child td { border-bottom:none }
-  td.bold { font-weight:700 }
-
-  .tot-wrap { display:flex; justify-content:flex-end; margin-bottom:20px }
-  table.tots { width:220px; border-collapse:collapse; border:1px solid #e5e7eb; border-radius:8px; overflow:hidden }
-  table.tots td { padding:9px 13px; font-size:13px; border-bottom:1px solid #f0f0f0 }
-  table.tots td.r { text-align:left; font-weight:600 }
-  table.tots td.red { text-align:left; color:#dc2626 }
-  table.tots tr:last-child td { border-bottom:none }
-  table.tots tr.grand td { background:#1d4ed8; color:white; font-weight:800; font-size:15px; padding:11px 13px }
-  table.tots tr.grand td.r { text-align:left }
-
-  .footer { text-align:center; font-size:10px; color:#ccc; border-top:1px solid #f0f0f0; padding-top:14px; line-height:1.5 }
-
-  @media print {
-    @page { margin:10mm 12mm }
-    body { -webkit-print-color-adjust:exact; print-color-adjust:exact; padding:0 }
-    .bar,.proj,.viz-block { -webkit-print-color-adjust:exact; print-color-adjust:exact }
-  }
-</style>
-</head>
-<body>
-
-<div class="hdr">
-  <div>${logoHtml}</div>
-  <div style="text-align:left">
-    <div class="hdr-title">הצעת מחיר</div>
-    <div class="hdr-sub">מספר: ${escHtml(qNum)}</div>
-  </div>
-</div>
-<div class="bar"></div>
-
-<div class="meta">
-  <div class="meta-cell"><div class="meta-label">ללקוח</div><div class="meta-val">${escHtml(clientName)}</div></div>
-  <div class="meta-cell"><div class="meta-label">מספר הצעה</div><div class="meta-val">${escHtml(qNum)}</div></div>
-  <div class="meta-cell"><div class="meta-label">תאריך הצעה</div><div class="meta-val">${dateStr}</div></div>
-  <div class="meta-cell"><div class="meta-label">תוקף עד</div><div class="meta-val">${expiryDate}</div></div>
-</div>
-
-${p ? `<div class="proj">
-  <div class="proj-name">📽 ${escHtml(p.brand)} ${escHtml(p.model)}</div>
-  <div class="chips">${chips}</div>
-  ${qLocation ? '<div class="loc">📍 '+escHtml(qLocation)+'</div>' : ''}
-</div>` : (qLocation ? '<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 13px;margin-bottom:14px;font-size:12px;color:#555">📍 '+escHtml(qLocation)+'</div>' : '')}
-
-${svgHtml || vizCells ? `<div class="viz-block">
-  ${svgHtml ? '<div class="viz-svg-wrap">'+svgHtml+'</div>' : ''}
-  ${vizCells ? '<div class="viz-data">'+vizCells+'</div>' : ''}
-</div>` : ''}
-
-<div class="section">פריטים</div>
-<table class="items">
-  <thead><tr>
-    <th style="width:48%">תיאור פריט</th>
-    <th class="c" style="width:10%">כמות</th>
-    <th class="r" style="width:21%">מחיר ליחידה</th>
-    <th class="r" style="width:21%">סה"כ</th>
-  </tr></thead>
-  <tbody>${itemRows}</tbody>
-</table>
-
-<div class="tot-wrap">
-  <table class="tots"><tbody>${totRows}</tbody></table>
-</div>
-
-<div class="footer">מסמך זה הופק אוטומטית ומהווה הצעת מחיר בלבד. תוקפה מותנה בפרטים המצוינים לעיל.</div>
-
-</body></html>`;
+        const svgEl = document.getElementById('vizSvg');
+        const svgHtml = svgEl ? svgEl.cloneNode(true).outerHTML : '';
+        let totRows = '<tr><td style="padding:8px 12px;color:#555;font-size:13px" colspan="3">סכום ביניים</td><td style="padding:8px 12px;text-align:left;font-weight:600">'+fmt(subtotal)+'</td></tr>';
+        if (discPct) totRows += '<tr><td colspan="3" style="padding:6px 12px;color:#555;font-size:12px">הנחה ('+discPct+'%)</td><td style="padding:6px 12px;text-align:left;color:#dc2626">&#8722;'+fmt(discAmt)+'</td></tr>';
+        if (vatPct)  totRows += '<tr><td colspan="3" style="padding:6px 12px;color:#555;font-size:12px">מע"מ '+vatPct+'%</td><td style="padding:6px 12px;text-align:left">'+fmt(vatAmt)+'</td></tr>';
+        totRows += '<tr style="background:#1d4ed8"><td colspan="3" style="padding:11px 12px;color:white;font-weight:800;font-size:15px">סה"כ לתשלום</td><td style="padding:11px 12px;text-align:left;color:white;font-weight:800;font-size:15px">'+fmt(total)+'</td></tr>';
+        return '<!DOCTYPE html><html dir="rtl" lang="he"><head><meta charset="utf-8"><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;font-size:13px;color:#1a1a1a;background:white;direction:rtl;padding:28px 32px}.hdr{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:14px;border-bottom:3px solid #1d4ed8;margin-bottom:5px}.hdr-title{font-size:26px;font-weight:900;color:#1d4ed8;letter-spacing:-1px;line-height:1}.hdr-sub{font-size:11px;color:#aaa;margin-top:4px}.bar{height:4px;background:linear-gradient(90deg,#1d4ed8,#60a5fa 60%,#e5e7eb);margin-bottom:22px}.meta{display:grid;grid-template-columns:1fr 1fr;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;margin-bottom:18px}.mc{padding:10px 14px;border-bottom:1px solid #f0f0f0}.mc:nth-child(odd){border-left:1px solid #f0f0f0}.mc:nth-last-child(-n+2){border-bottom:none}.ml{font-size:10px;color:#aaa;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}.mv{font-size:14px;font-weight:700;color:#111}.proj{background:linear-gradient(135deg,#eff6ff,#eef2ff);border:1px solid #bfdbfe;border-radius:10px;padding:13px 15px;margin-bottom:18px}.proj-name{font-size:15px;font-weight:900;color:#1d4ed8;margin-bottom:10px}.chips{display:flex;flex-wrap:wrap;gap:7px}.section{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#9ca3af;border-bottom:1px solid #e5e7eb;padding-bottom:5px;margin-bottom:11px;margin-top:18px}.viz-wrap{border:1px solid #e5e7eb;border-radius:8px;padding:8px;margin-bottom:18px;background:#f8faff;text-align:center}.viz-wrap svg{max-width:100%;height:auto;max-height:200px}table.items{width:100%;border-collapse:collapse;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb;margin-bottom:12px}table.items thead tr{background:#1d4ed8}table.items th{padding:9px 12px;color:white;font-size:11px;font-weight:700;text-align:right}table.items th:not(:first-child){text-align:left}.tot-wrap{display:flex;justify-content:flex-end;margin-bottom:20px}table.tots{width:250px;border-collapse:collapse;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden}.footer{text-align:center;font-size:10px;color:#ccc;border-top:1px solid #f0f0f0;padding-top:14px}@media print{body{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>' +
+          '<div class="hdr"><div>'+logoHtml+'</div><div style="text-align:left"><div class="hdr-title">הצעת מחיר</div><div class="hdr-sub">מספר: '+escH(qNum)+'</div></div></div>' +
+          '<div class="bar"></div>' +
+          '<div class="meta"><div class="mc"><div class="ml">ללקוח</div><div class="mv">'+escH(clientName)+'</div></div><div class="mc"><div class="ml">מספר הצעה</div><div class="mv">'+escH(qNum)+'</div></div><div class="mc"><div class="ml">תאריך הצעה</div><div class="mv">'+dateStr+'</div></div><div class="mc"><div class="ml">תוקף עד</div><div class="mv">'+expiryDate+'</div></div></div>' +
+          (p ? '<div class="proj"><div class="proj-name">📽 '+escH(p.brand)+' '+escH(p.model)+'</div><div class="chips">'+chips+'</div></div>' : '') +
+          (svgHtml ? '<div class="section">הדמיית התקנה</div><div class="viz-wrap">'+svgHtml+'</div>' : '') +
+          '<div class="section">פריטים</div>' +
+          (qLocation ? '<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 13px;margin-bottom:14px;font-size:12px;color:#555">📍 '+escH(qLocation)+'</div>' : '') +
+          '<table class="items"><thead><tr><th style="width:48%">תיאור פריט</th><th style="width:10%;text-align:center">כמות</th><th style="width:21%;text-align:left">מחיר ליח\'</th><th style="width:21%;text-align:left">סה"כ</th></tr></thead><tbody>'+itemRows+'</tbody></table>' +
+          '<div class="tot-wrap"><table class="tots"><tbody>'+totRows+'</tbody></table></div>' +
+          '<div class="footer">מסמך זה הופק אוטומטית ומהווה הצעת מחיר בלבד.</div></body></html>';
       }
 
-      // ── Logo helpers ──
+      function quotePreview() {
+        const html = quoteBuildHTML();
+        document.getElementById('quoteIframe').srcdoc = html;
+        document.getElementById('quoteModal').classList.add('open');
+      }
+
+      function quotePrintFull() {
+        const html = quoteBuildHTML();
+        const qNum = document.getElementById('qNumber').value || '';
+        const w = window.open('', '_blank', 'width=850,height=1100');
+        if (!w) { alert('אפשר חלונות קופצים'); return; }
+        w.document.open(); w.document.write(html); w.document.close();
+        w.onload = () => setTimeout(() => { w.focus(); w.print(); }, 400);
+        if (w.document.readyState === 'complete') setTimeout(() => { w.focus(); w.print(); }, 500);
+      }
+
+      async function quoteShare() {
+        const html = quoteBuildHTML();
+        const qNum = document.getElementById('qNumber').value || '';
+        const filename = 'הצעת_מחיר' + (qNum ? '_'+qNum : '') + '.html';
+        const blob = new Blob([html], { type: 'text/html' });
+        const file = new File([blob], filename, { type: 'text/html' });
+        if (navigator.share) {
+          try {
+            const sd = navigator.canShare && navigator.canShare({ files: [file] })
+              ? { title: 'הצעת מחיר', files: [file] }
+              : { title: 'הצעת מחיר', text: quoteGenerateText() };
+            await navigator.share(sd); return;
+          } catch(e) { if (e.name === 'AbortError') return; }
+        }
+        quotePrintFull();
+      }
+
+      function quoteCopyText() {
+        const el = document.querySelector('#quoteIframe');
+        const text = el && el.contentDocument ? el.contentDocument.body.innerText : '';
+        navigator.clipboard.writeText(text).then(() => {
+          const btn = document.querySelector('.qp-copy-btn');
+          btn.textContent = '✓'; setTimeout(() => { btn.textContent = '📋'; }, 1800);
+        });
+      }
+
+      function quoteGenerateText() {
+        const clientName = document.getElementById('qClientName').value || '—';
+        const qNum = document.getElementById('qNumber').value || '—';
+        const subtotal = quoteItems.reduce((s,it)=>s+it.qty*it.price,0);
+        const fmt = n => '₪'+n.toLocaleString('he-IL',{minimumFractionDigits:0});
+        let lines = ['הצעת מחיר', 'ללקוח: '+clientName, 'מספר: '+qNum, ''];
+        quoteItems.forEach(it => lines.push((it.desc||'—')+' ×'+it.qty+' '+fmt(it.qty*it.price)));
+        lines.push('סה"כ: '+fmt(subtotal));
+        return lines.join('\n');
+      }
+
       function quoteLoadLogo(input) {
-        const file = input.files[0];
-        if (!file) return;
+        const file = input.files[0]; if (!file) return;
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = e => {
           window._quoteLogo = e.target.result;
           document.getElementById('logoPreviewImg').src = e.target.result;
           document.getElementById('logoPreviewImg').style.display = 'block';
@@ -4714,6 +3868,7 @@ ${svgHtml || vizCells ? `<div class="viz-block">
         };
         reader.readAsDataURL(file);
       }
+
       function quoteClearLogo() {
         window._quoteLogo = null;
         document.getElementById('logoPreviewImg').src = '';
@@ -4723,344 +3878,8 @@ ${svgHtml || vizCells ? `<div class="viz-block">
         document.getElementById('qLogoInput').value = '';
       }
 
-      function quoteExportTxt() {
-        const clientName = document.getElementById('qClientName').value || 'לקוח';
-        const qNum = document.getElementById('qNumber').value || '—';
-        const qDate = document.getElementById('qDate').value;
-        const qValidity = document.getElementById('qValidity').value;
-        const qLocation = document.getElementById('qLocation').value;
-        const discPct = parseFloat(document.getElementById('qDiscount').value) || 0;
-        const vatPct = parseFloat(document.getElementById('qVat').value) || 0;
-
-        const subtotal = quoteItems.reduce((s, it) => s + it.qty * it.price, 0);
-        const discAmt = subtotal * discPct / 100;
-        const afterDisc = subtotal - discAmt;
-        const vatAmt = afterDisc * vatPct / 100;
-        const total = afterDisc + vatAmt;
-        const fmt = (n) => '₪' + n.toLocaleString('he-IL', { minimumFractionDigits: 0 });
-
-        let lines = [
-          'הצעת מחיר',
-          '==========',
-          'ללקוח: ' + clientName,
-          'מספר: ' + qNum,
-          'תאריך: ' + (qDate ? new Date(qDate).toLocaleDateString('he-IL') : '—'),
-          'תוקף: ' + qValidity + ' ימים',
-          '',
-        ];
-        if (quoteProjectorData) {
-          const p = quoteProjectorData;
-          lines.push('מקרן: ' + p.brand + ' ' + p.model);
-          if (p.lumens) lines.push('לומן: ' + p.lumens);
-          if (p.resolution) lines.push('רזולוציה: ' + p.resolution);
-          lines.push('');
-        }
-        if (qLocation) { lines.push('מיקום: ' + qLocation); lines.push(''); }
-
-        lines.push('פריטים:');
-        lines.push('-'.repeat(40));
-        quoteItems.forEach(it => {
-          lines.push(it.desc + '  x' + it.qty + '  ' + fmt(it.price) + '  = ' + fmt(it.qty * it.price));
-        });
-        lines.push('-'.repeat(40));
-        lines.push('סכום ביניים: ' + fmt(subtotal));
-        if (discPct) lines.push('הנחה (' + discPct + '%): –' + fmt(discAmt));
-        if (vatPct) lines.push('מע"מ ' + vatPct + '%: ' + fmt(vatAmt));
-        lines.push('סה"כ: ' + fmt(total));
-
-        const text = lines.join('\n');
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
-        a.download = 'quote-' + qNum + '.txt';
-        a.click();
-      }
-
-      function quoteCopyText() {
-        const el = document.querySelector('.quote-preview-box .qp-body');
-        const text = el ? el.innerText : '';
-        navigator.clipboard.writeText(text).then(() => {
-          const btn = document.querySelector('.qp-copy-btn');
-          btn.textContent = '✓ הועתק!';
-          setTimeout(() => { btn.textContent = '📋 העתק טקסט'; }, 1800);
-        });
-      }
-
-
-      function quotePrintFull() {
-        const html = quoteBuildHTML();
-        const w = window.open('', '_blank', 'width=850,height=1100');
-        if (!w) { alert('אפשר חלונות קופצים כדי להוריד PDF'); return; }
-        w.document.open();
-        w.document.write(html);
-        w.document.close();
-        // Wait for resources then print
-        w.onload = function() {
-          setTimeout(function() { w.focus(); w.print(); }, 400);
-        };
-        // Fallback if onload already fired
-        if (w.document.readyState === 'complete') {
-          setTimeout(function() { w.focus(); w.print(); }, 500);
-        }
-      }
-      async function quoteShare() {
-        const qNum       = document.getElementById('qNumber').value || '';
-        const filename   = 'הצעת_מחיר' + (qNum ? '_' + qNum : '') + '.html';
-        const shareTitle = 'הצעת מחיר' + (qNum ? ' מס\' ' + qNum : '');
-        const shareText  = quoteGenerateText();
-        const html       = quoteBuildHTML();
-
-        // Share as HTML file (opens app picker on mobile — WhatsApp, Gmail, etc.)
-        const blob = new Blob([html], { type: 'text/html' });
-        const file = new File([blob], filename, { type: 'text/html' });
-
-        if (navigator.share) {
-          const shareData = navigator.canShare && navigator.canShare({ files: [file] })
-            ? { title: shareTitle, text: shareText, files: [file] }
-            : { title: shareTitle, text: shareText };
-          try {
-            await navigator.share(shareData);
-            return;
-          } catch(e) {
-            if (e.name === 'AbortError') return; // user cancelled
-            // fall through to print window
-          }
-        }
-
-        // Desktop fallback — open print window
-        quotePrintFull();
-      }
-
-      function quoteGenerateText() {
-        const clientName = document.getElementById('qClientName').value || '—';
-        const qNum       = document.getElementById('qNumber').value || '—';
-        const qDate      = document.getElementById('qDate').value;
-        const discPct    = parseFloat(document.getElementById('qDiscount').value) || 0;
-        const vatPct     = parseFloat(document.getElementById('qVat').value) || 0;
-        const subtotal   = quoteItems.reduce((s,it)=>s+it.qty*it.price,0);
-        const discAmt    = subtotal*discPct/100;
-        const afterDisc  = subtotal-discAmt;
-        const vatAmt     = afterDisc*vatPct/100;
-        const total      = afterDisc+vatAmt;
-        const fmt        = (n) => '₪'+n.toLocaleString('he-IL',{minimumFractionDigits:0});
-        const p          = quoteProjectorData;
-
-        let lines = [
-          '📋 הצעת מחיר',
-          'מספר: '+qNum,
-          'ללקוח: '+clientName,
-          qDate ? 'תאריך: '+new Date(qDate).toLocaleDateString('he-IL') : '',
-          '',
-        ];
-        if (p) {
-          lines.push('📽 מקרן: '+p.brand+' '+p.model);
-          if (p.lumens)     lines.push('   לומן: '+p.lumens);
-          if (p.resolution) lines.push('   רזולוציה: '+p.resolution);
-          lines.push('');
-        }
-        lines.push('פריטים:');
-        lines.push('─────────────────────────');
-        quoteItems.forEach(it => {
-          lines.push((it.desc||'—')+' × '+it.qty+'   '+fmt(it.qty*it.price));
-        });
-        lines.push('─────────────────────────');
-        if (discPct) lines.push('הנחה ('+discPct+'%): –'+fmt(discAmt));
-        if (vatPct)  lines.push('מע"מ '+vatPct+'%: '+fmt(vatAmt));
-        lines.push('סה"כ לתשלום: '+fmt(total));
-        return lines.filter(l=>l!==undefined).join('\n');
-      }
-
-      function escHtml(s) {
-        return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-      }
-
-
-
-
-
-
-
-
-      // ══════════════════════════════════════════
-      //  ENVIRONMENT MAPPING + VIEWING ANGLES
-      // ══════════════════════════════════════════
-
-      // Ambient lux per environment type
-      const ENV_LUX = {
-        dark:      5,
-        office:    350,
-        natural:   700,
-        event:     120,
-        outdoor:   1500,
-        classroom: 450,
-      };
-      const ENV_NAMES = {
-        dark: 'חדר חשוך', office: 'חדר ישיבות', natural: 'אור יום',
-        event: 'אולם אירועים', outdoor: 'חוץ / שמש', classroom: 'כיתה',
-      };
-      let currentEnv = 'office';
-
-      // ANSI lumens needed per lux (rough: 1 lm/m² ambient needs ~3× projector lm on typical screen)
-      // Simplified model: effective ANSI lm on screen = projector_lm / (screen_area_m2)
-      // Contrast ratio needed ≥ 3:1 vs ambient (AVIXA guideline)
-      // Required lm on screen ≥ ambient_lux × screen_area × 3
-
-      function envSelect(btn) {
-        document.querySelectorAll('.env-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentEnv = btn.dataset.env;
-        envCalc();
-      }
-
-      function envCalc() {
-        const lumText  = document.getElementById('modelLumens')?.textContent || '';
-        const projLm   = parseInt(lumText.replace(/[^0-9]/g,'')) || 0;
-        const screenW  = parseFloat(document.getElementById('screenWidth')?.value) / 100 || 2.5; // metres
-        const ratio    = (document.getElementById('modelAspect')?.textContent || '16:9').split(':');
-        const rW = parseInt(ratio[0])||16, rH = parseInt(ratio[1])||9;
-        const screenH  = screenW * (rH / rW);
-        const screenM2 = screenW * screenH;
-
-        const ambientLux = ENV_LUX[currentEnv] || 350;
-        // ANSI lumens on screen surface (assume gain 1.0, uniform distribution)
-        const lmOnScreen = projLm; // projector lumens ~= lumens on screen for typical setup
-        const luxOnScreen = projLm / screenM2;
-
-        // Contrast ratio on screen vs ambient
-        const contrast = ambientLux > 0 ? luxOnScreen / ambientLux : 999;
-        // Required contrast ≥ 3 (AVIXA guideline for boardroom)
-        const needed = ambientLux * screenM2 * 3; // lm needed
-
-        const pct = Math.min(100, Math.max(0, (projLm / needed) * 100));
-
-        if (projLm === 0) {
-          document.getElementById('brightnessMeter').style.display = 'none';
-          document.getElementById('envWarning').className = 'env-warning';
-          return;
-        }
-
-        document.getElementById('brightnessMeter').style.display = 'flex';
-
-        // Bar
-        const bar = document.getElementById('bmBar');
-        bar.style.width = pct.toFixed(0) + '%';
-        bar.style.background = pct >= 100 ? '#059669' : pct >= 65 ? '#f59e0b' : '#dc2626';
-
-        document.getElementById('bmScore').textContent =
-          pct >= 100 ? '✅ מספיק' : pct >= 65 ? '⚠️ גבולי' : '❌ לא מספיק';
-        document.getElementById('bmScore').style.color =
-          pct >= 100 ? '#059669' : pct >= 65 ? '#d97706' : '#dc2626';
-
-        document.getElementById('bmAnsiText').textContent =
-          'מקרן: ' + projLm.toLocaleString('he-IL') + ' lm';
-        document.getElementById('bmNeedText').textContent =
-          'נדרש: ~' + Math.round(needed).toLocaleString('he-IL') + ' lm';
-
-        // Warning
-        const warn = document.getElementById('envWarning');
-        warn.classList.add('visible');
-        if (pct >= 100) {
-          warn.className = 'env-warning visible ok';
-          warn.innerHTML = '✅ <span>הבהירות מספיקה ל<strong>' + ENV_NAMES[currentEnv] + '</strong> — יחס ניגודיות: ' + contrast.toFixed(1) + ':1 (נדרש ≥ 3:1)</span>';
-        } else if (pct >= 65) {
-          warn.className = 'env-warning visible warn';
-          warn.innerHTML = '⚠️ <span>בהירות גבולית ל<strong>' + ENV_NAMES[currentEnv] + '</strong>. מומלץ להוריד וילונות / להחליף למקרן ≥ ' + Math.round(needed).toLocaleString('he-IL') + ' lm</span>';
-        } else {
-          warn.className = 'env-warning visible bad';
-          const stronger = Math.round(needed / projLm * 100 - 100);
-          warn.innerHTML = '❌ <span>הבהירות <strong>אינה מספיקה</strong> ל' + ENV_NAMES[currentEnv] + '. נדרש מקרן חזק ב-' + stronger + '% יותר (' + Math.round(needed).toLocaleString('he-IL') + ' lm)</span>';
-        }
-      }
-
-      // ── Viewing Angles (AVIXA IQ standard) ──
-      // Eye height seated: 120cm
-      // Max elevation angle: 30° (AVIXA)
-      // Min viewing angle to bottom of screen: line-of-sight to be positive (above eye level)
-      // Max viewing angle (vertical subtended): should not exceed 30°
-
-      function viewCalc() {
-        const ceilH    = parseFloat(document.getElementById('roomHeightInput')?.value)  || 0;
-        const screenBot= parseFloat(document.getElementById('screenBottomInput')?.value) || 0;
-        const firstRow = parseFloat(document.getElementById('firstRowInput')?.value)    || 0;
-        const lastRow  = parseFloat(document.getElementById('lastRowInput')?.value)     || 0;
-        const screenW  = parseFloat(document.getElementById('screenWidth')?.value)      || 0;
-
-        if (!screenBot || !firstRow || !lastRow || !screenW) return;
-
-        const ratio = (document.getElementById('modelAspect')?.textContent || '16:9').split(':');
-        const rW = parseInt(ratio[0])||16, rH = parseInt(ratio[1])||9;
-        const screenHcm = screenW * (rH / rW);
-        const screenTop = screenBot + screenHcm;
-        const eyeH = 120; // seated eye height cm
-
-        // Elevation angle: from eye to centre of screen at first row
-        const screenCentre = screenBot + screenHcm / 2;
-        const elevAngle = Math.atan2(screenCentre - eyeH, firstRow) * 180 / Math.PI;
-
-        // Vertical subtended angle at first row
-        const angleTop1    = Math.atan2(screenTop - eyeH, firstRow)  * 180 / Math.PI;
-        const angleBot1    = Math.atan2(screenBot - eyeH, firstRow)  * 180 / Math.PI;
-        const subtended1   = angleTop1 - angleBot1;
-
-        // Vertical subtended angle at last row
-        const angleTop2    = Math.atan2(screenTop - eyeH, lastRow)   * 180 / Math.PI;
-        const angleBot2    = Math.atan2(screenBot - eyeH, lastRow)   * 180 / Math.PI;
-        const subtended2   = angleTop2 - angleBot2;
-
-        // AVIXA thresholds:
-        // Elevation ≤ 30° (max), ideally ≤ 15°
-        // Subtended angle: basic quality ≥ 7.5°, high quality ≥ 15°
-        // Back row: ≥ 5° minimum
-
-        const elevOk  = elevAngle <= 30;
-        const front1Ok = subtended1 >= 15;
-        const front1Warn = subtended1 >= 7.5 && subtended1 < 15;
-        const backOk  = subtended2 >= 5;
-
-        // Update cards
-        const vcElev = document.getElementById('vcElevation');
-        document.getElementById('vcElevVal').textContent = elevAngle.toFixed(1) + '°';
-        vcElev.className = 'view-card ' + (elevAngle > 30 ? 'bad' : elevAngle > 15 ? 'warn' : 'ok');
-
-        const vcFront = document.getElementById('vcFront');
-        document.getElementById('vcFrontVal').textContent = subtended1.toFixed(1) + '°';
-        vcFront.className = 'view-card ' + (subtended1 >= 15 ? 'ok' : subtended1 >= 7.5 ? 'warn' : 'bad');
-
-        const vcBack = document.getElementById('vcBack');
-        document.getElementById('vcBackVal').textContent = subtended2.toFixed(1) + '°';
-        vcBack.className = 'view-card ' + (subtended2 >= 5 ? 'ok' : 'bad');
-
-        document.getElementById('viewResults').classList.add('visible');
-
-        // AVIXA summary
-        const avixa = document.getElementById('viewAvixa');
-        avixa.style.display = 'block';
-        let lines = [];
-        if (elevAngle > 30)
-          lines.push('⚠️ זווית הגבהה ' + elevAngle.toFixed(1) + '° חורגת מתקן AVIXA (מקסימום 30°) — הורד את המסך או העבר את הצופים קרוב יותר');
-        else if (elevAngle > 15)
-          lines.push('ℹ️ זווית הגבהה ' + elevAngle.toFixed(1) + '° — מקובלת אך AVIXA ממליץ על ≤ 15° לנוחות מרבית');
-        else
-          lines.push('✅ זווית הגבהה ' + elevAngle.toFixed(1) + '° — מצוין (AVIXA: ≤ 15°)');
-
-        if (subtended1 >= 15)
-          lines.push('✅ שורה ראשונה: זווית אנכית ' + subtended1.toFixed(1) + '° — איכות גבוהה (AVIXA: ≥ 15°)');
-        else if (subtended1 >= 7.5)
-          lines.push('⚠️ שורה ראשונה: ' + subtended1.toFixed(1) + '° — איכות בסיסית. הגדל את המסך ל-' + Math.round(firstRow * Math.tan(15 * Math.PI/180) / (rH/rW)) + ' ס"מ רוחב לאיכות גבוהה');
-        else
-          lines.push('❌ שורה ראשונה: ' + subtended1.toFixed(1) + '° — מתחת לתקן. המסך קטן מדי או הצופים קרובים מדי');
-
-        if (!backOk)
-          lines.push('❌ שורה אחרונה: ' + subtended2.toFixed(1) + '° — מתחת למינימום AVIXA (5°). הגדל מסך או קצר מרחק');
-        else
-          lines.push('✅ שורה אחרונה: ' + subtended2.toFixed(1) + '° — תקין (AVIXA: ≥ 5°)');
-
-        avixa.innerHTML = '<strong>ניתוח AVIXA IQ:</strong><br>' + lines.join('<br>');
-      }
-
-      // Auto-run env calc when calculate() sets lumens
-      function envAutoCalc() {
-        setTimeout(() => { envCalc(); viewCalc(); }, 100);
-      }
+      function escH(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+      function escQ(s) { return String(s).replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
 
       window.addEventListener("DOMContentLoaded", function() { init(); quoteInit(); });
     </script>
